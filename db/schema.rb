@@ -10,16 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_200539) do
+ActiveRecord::Schema.define(version: 2020_11_14_202754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assets", force: :cascade do |t|
+    t.string "type"
+    t.text "description"
+    t.float "value"
+    t.bigint "candidate_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["candidate_id"], name: "index_assets_on_candidate_id"
+  end
 
   create_table "badges", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.bigint "candidate_id", null: false
+    t.index ["candidate_id"], name: "index_badges_on_candidate_id"
+    t.index ["user_id"], name: "index_badges_on_user_id"
   end
 
   create_table "candidates", force: :cascade do |t|
@@ -66,4 +80,7 @@ ActiveRecord::Schema.define(version: 2020_11_14_200539) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "assets", "candidates"
+  add_foreign_key "badges", "candidates"
+  add_foreign_key "badges", "users"
 end
