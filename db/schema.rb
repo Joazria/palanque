@@ -10,20 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_202754) do
+ActiveRecord::Schema.define(version: 2020_11_17_231406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "assets", force: :cascade do |t|
-    t.string "type"
-    t.text "description"
-    t.float "value"
-    t.bigint "candidate_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["candidate_id"], name: "index_assets_on_candidate_id"
-  end
 
   create_table "badges", force: :cascade do |t|
     t.string "name"
@@ -59,11 +49,23 @@ ActiveRecord::Schema.define(version: 2020_11_14_202754) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "candidates_users", id: false, force: :cascade do |t|
+  create_table "favorites", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "candidate_id", null: false
-    t.index ["candidate_id", "user_id"], name: "index_candidates_users_on_candidate_id_and_user_id"
-    t.index ["user_id", "candidate_id"], name: "index_candidates_users_on_user_id_and_candidate_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["candidate_id"], name: "index_favorites_on_candidate_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "properties", force: :cascade do |t|
+    t.string "type"
+    t.text "description"
+    t.float "value"
+    t.bigint "candidate_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["candidate_id"], name: "index_properties_on_candidate_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -80,7 +82,9 @@ ActiveRecord::Schema.define(version: 2020_11_14_202754) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "assets", "candidates"
   add_foreign_key "badges", "candidates"
   add_foreign_key "badges", "users"
+  add_foreign_key "favorites", "candidates"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "properties", "candidates"
 end
