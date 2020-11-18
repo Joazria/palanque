@@ -5,23 +5,30 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-candidate = Candidate.create(
-  sq_candidate: '250000766422',
-  nr_candidate: '65',
-  name_candidate: 'ORLANDO SILVA DE JESUS JUNIOR',
-  party_candidate: 'PC do B',
-  nr_party: '65',
-  total_patrimony: '738360.3',
-  ds_coligation_composition: 'PC do B',
-  ds_nacionality: 'BRASILEIRA NATA',
-  birth_dt: '27/05/1971',
-  ds_gender: 'MASCULINO',
-  ds_marital_status: 'CASADO(A)',
-  ds_color_race: 'PRETA',
-  ds_ocupation: 'DEPUTADO',
-  militancy: '#',
-  acting_region: 'SÃO PAULO',
-  candidate_ballot_name: 'ORLANDO SILVA',
-  email_candidate: 'PCDOB2020@GMAIL.COM',
-  running_to: 'PREFEITO'
-)
+
+require 'csv'
+
+csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
+filepath    = 'db/candidatos.csv'
+
+CSV.foreach(filepath, csv_options) do |row|
+  candidate = Candidate.create(
+  sq_candidate: row["SQ_CANDITATO"],
+  nr_candidate: row["NR_CANDIDATO"],
+  name_candidate: row["NOME_CANDIDATO"],
+  party_candidate: row["PARTIDO_CANDIDATO"],
+  nr_party: row["NR_PARTIDO"],
+  total_patrimony: row["PATRIMONIO_TOTAL"],
+  ds_coligation_composition: row["DS_COMPOSICAO_COLIGACAO"],
+  ds_nacionality: row["DS_NACIONALIDADE"],
+  birth_dt: row["DT_NASCIMENTO"],
+  ds_gender: row["DS_GENERO"],
+  ds_marital_status: row["DS_ESTADO_CIVIL"],
+  ds_color_race: row["DS_COR_RACA"],
+  ds_ocupation: row["DS_OCUPACAO"],
+  candidate_ballot_name: row["NM_URNA_CANDIDATO"],
+  email_candidate: row["EMAIL"],
+  running_to: row["DS_CARGO"])
+
+  puts "#{candidate.candidate_ballot_name} criado"
+end
