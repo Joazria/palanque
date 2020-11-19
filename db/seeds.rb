@@ -12,23 +12,25 @@ csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
 filepath    = 'db/candidatos.csv'
 
 CSV.foreach(filepath, csv_options) do |row|
-  candidate = Candidate.create(
-  sq_candidate: row["SQ_CANDITATO"],
-  nr_candidate: row["NR_CANDIDATO"],
-  name_candidate: row["NOME_CANDIDATO"],
-  party_candidate: row["PARTIDO_CANDIDATO"],
-  nr_party: row["NR_PARTIDO"],
-  total_patrimony: row["PATRIMONIO_TOTAL"],
-  ds_coligation_composition: row["DS_COMPOSICAO_COLIGACAO"],
-  ds_nacionality: row["DS_NACIONALIDADE"],
-  birth_dt: row["DT_NASCIMENTO"],
-  ds_gender: row["DS_GENERO"],
-  ds_marital_status: row["DS_ESTADO_CIVIL"],
-  ds_color_race: row["DS_COR_RACA"],
-  ds_ocupation: row["DS_OCUPACAO"],
-  candidate_ballot_name: row["NM_URNA_CANDIDATO"],
-  email_candidate: row["EMAIL"],
-  running_to: row["DS_CARGO"])
+  Candidate.create(
+    sq_candidate: row["SQ_CANDIDATO"],
+    nr_candidate: row["NR_CANDIDATO"],
+    name_candidate: row["NOME_CANDIDATO"].downcase.titleize,
+    party_candidate: row["PARTIDO_CANDIDATO"],
+    nr_party: row["NR_PARTIDO"],
+    total_patrimony: row["PATRIMONIO_TOTAL"],
+    ds_coligation_composition: row["DS_COMPOSICAO_COLIGACAO"],
+    ds_nacionality: row["DS_NACIONALIDADE"].downcase.titleize,
+    birth_dt: row["DT_NASCIMENTO"],
+    ds_gender: row["DS_GENERO"].downcase.capitalize,
+    ds_marital_status: row["DS_ESTADO_CIVIL"].downcase.capitalize,
+    ds_color_race: row["DS_COR_RACA"].downcase.titleize,
+    ds_ocupation: row["DS_OCUPACAO"].downcase.titleize,
+    education: row["DS_GRAU_INSTRUCAO"].downcase.titleize,
+    candidate_ballot_name: row["NM_URNA_CANDIDATO"].downcase.titleize,
+    email_candidate: row["EMAIL"].downcase,
+    running_to: row["DS_CARGO"].downcase.titleize
+  )
 
-  puts "#{candidate.candidate_ballot_name} criado"
+  puts "#{row["NOME_CANDIDATO"]} criado"
 end
