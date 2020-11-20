@@ -34,3 +34,17 @@ CSV.foreach(filepath, csv_options) do |row|
 
   puts "#{row["NOME_CANDIDATO"]} criado"
 end
+
+filepath = 'db/bens_candidatos.csv'
+
+CSV.foreach(filepath, csv_options) do |row|
+  candidate = Candidate.find_by sq_candidate: row["SQ_CANDIDATO"]
+  Property.create(
+    property_type: row["DS_TIPO_BEM_CANDIDATO"],
+    description: row["DS_BEM_CANDIDATO"],
+    value: row["VR_BEM_CANDIDATO"],
+    candidate_id: candidate.id
+  )
+
+  puts "Bem de #{candidate.candidate_ballot_name} criado"
+end
