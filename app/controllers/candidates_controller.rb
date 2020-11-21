@@ -62,7 +62,8 @@ class CandidatesController < ApplicationController
   :acting_region,
   :candidate_ballot_name,
   :email_candidate,
-  :running_to
+  :running_to,
+  :photo
   )
   end
 end
