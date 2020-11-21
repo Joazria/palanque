@@ -12,7 +12,8 @@ csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
 filepath    = 'db/candidatos.csv'
 
 CSV.foreach(filepath, csv_options) do |row|
-  Candidate.create(
+  file = "photos/FSP#{row["SQ_CANDIDATO"]}_div.jpg"
+ candidate = Candidate.new(
     sq_candidate: row["SQ_CANDIDATO"],
     nr_candidate: row["NR_CANDIDATO"],
     name_candidate: row["NOME_CANDIDATO"].downcase.titleize,
@@ -31,6 +32,8 @@ CSV.foreach(filepath, csv_options) do |row|
     email_candidate: row["EMAIL"].downcase,
     running_to: row["DS_CARGO"].downcase.titleize
   )
+  candidate.photo.attach(io: file, filename: file, content_type: 'image/jpg')
+  candidate.save
 
   puts "#{row["NOME_CANDIDATO"]} criado"
 end
