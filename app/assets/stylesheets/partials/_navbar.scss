@@ -16,6 +16,14 @@
     display: inherit;
     align-items: center;
     gap: 0 40px;
+    &_options {
+      position: absolute;
+      top: 100%;
+      background: $color-lilac;
+      color: currentColor;
+      width: 100%;
+      opacity: 0;
+    }
     &_item {
       display: inherit;
       align-items: center;
@@ -26,13 +34,17 @@
       display: inherit;
       flex-flow: column nowrap;
       position: relative;
+      top: 3px;
+      z-index: 3;
+      &:hover .navbar__menu_options{
+        opacity: 1;
+      }
     }
     &_toggler {
-      position: absolute;
-      top: 0;
-      left: 0;
       height: 60px;
       width: max-content;
+      background: transparent;
+      color: $color-lighter-tomato;
     }
   }
 }
