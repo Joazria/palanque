@@ -1,15 +1,16 @@
-<div class="show">
+<div class="show mt-lg">
+  <div class="go-back"><i class="fas fa-angle-left"></i><p class="text">Voltar</p></div>
   <div class="show__profile">
     <img src="https://source.unsplash.com/200x200/?person,portrait" alt="" srcset="" class="show__profile_img">
     <div class="show__profile_container">
       <h2 class="title profile__name">
-        <%=@candidate.candidate_ballot_name%>
+        <%= @candidate.candidate_ballot_name %>
       </h2>
       <p class="text profile__running">
-        <%=@candidate.running_to%>
+        <%= @candidate.running_to %>
       </p>
       <h2 class="heading-2 profile__number">
-          <%=@candidate.nr_candidate%>
+          <%= @candidate.nr_candidate %>
       </h2>
       <div class="show__table mt-sm">
         <div class="show__table_item">
@@ -20,31 +21,59 @@
           <small class="text-small">Coligação</small>
           <small class="text-small"><%= @candidate.ds_coligation_composition %></small>
         </div>
-    </div>
+      </div>
     </div>
   </div>
-  <div class="show__personal"></div>
-  <div class="show__badges"></div>
-  <div class="show__financial"></div>
+  <div class="show__personal">
+    <h1 class="title show__personal_header">Dados Pessoais</h1>
+    <div class="show__table mt-sm">
+      <div class="show__table_item">
+        <small class="text">Nome Completo</small>
+        <small class="text"><%= @candidate.name_candidate %></small>
+      </div>
+      <div class="show__table_item">
+        <small class="text">Data Nascimento</small>
+        <small class="text"><%= @candidate.birth_dt %></small>
+      </div>
+    </div>
+    <div class="show__table mt-sm">
+      <div class="show__table_item">
+        <small class="text">E-mail</small>
+        <small class="text"><%= @candidate.email_candidate %></small>
+      </div>
+      <div class="show__table_item">
+        <small class="text">Estado Civil</small>
+        <small class="text"><%= @candidate.ds_marital_status %></small>
+      </div>
+    </div>
+    <div class="show__table mt-sm">
+      <div class="show__table_item">
+        <small class="text">Nacionalidade</small>
+        <small class="text"><%= @candidate.ds_nacionality %></small>
+      </div>
+      <div class="show__table_item">
+        <small class="text">Genero</small>
+        <small class="text"><%= @candidate.ds_gender %></small>
+      </div>
+    </div>
+    <div class="show__table mt-sm">
+      <div class="show__table_item">
+        <small class="text">Bandeiras</small>
+        <small class="text"><%= @candidate.militancy %></small>
+      </div>
+      <div class="show__table_item">
+        <small class="text">Região de Atuação</small>
+        <small class="text"><%= @candidate.acting_region %></small>
+      </div>
+    </div>
+  </div>
+  <div class="show__badges">
+    <h2 class="heading-2">Em breve!</h2>
+  </div>
+  <div class="show__financial">
+    <h2 class="show__financial_title title">Análise de extrato</h2>
+    <small class="text-small show__financial_total">Total bens declarados</small>
+    <h1 class="heading-1 show__financial_number"><%= @candidate.total_patrimony %></h1>
+  </div>
 </div>
-
-<p>@candidate</p>
-<ul>
-    <li><%=@candidate.sq_candidate%>sq_candidate</li>
-  <li>nr_candidate</li>
-  <li>name_candidate</li>
-  <li><%=@candidate.party_candidate%>party_candidate</li>
-  <li><%=@candidate.nr_party%>nr_party</li>
-  <li><%=@candidate.total_patrimony%>total_patrimony</li>
-  <li><%=@candidate.ds_coligation_composition%>ds_coligation_composition</li>
-  <li><%=@candidate.ds_nacionality%>ds_nacionality</li>
-  <li><%=@candidate.birth_dt%>birth_dt</li>
-  <li><%=@candidate.ds_gender%>ds_gender</li>
-  <li><%=@candidate.ds_marital_status%>ds_marital_status</li>
-  <li><%=@candidate.ds_color_race%>ds_color_race</li>
-  <li><%=@candidate.ds_ocupation%>ds_ocupation</li>
-    <li><%=@candidate.militancy%>militancy</li>
-        <li><%=@candidate.acting_region%>acting_region</li>
-        <li><%=@candidate.email_candidate%>e-mail</li>
-</ul>
 

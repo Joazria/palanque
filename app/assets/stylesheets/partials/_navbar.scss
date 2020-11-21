@@ -16,13 +16,15 @@
     display: inherit;
     align-items: center;
     gap: 0 40px;
-    &__options {
+    &_options {
       position: absolute;
       top: 100%;
       padding: 8px;
       background: $color-lilac;
       width: 100%;
       opacity: 0;
+      border-radius: $radius-sm;
+      transition: opacity 0.4s ease-in-out;
     }
     &_item {
       display: inherit;
@@ -34,9 +36,9 @@
       display: inherit;
       flex-flow: column nowrap;
       position: relative;
-      top: 3px;
+      top: 1px;
       z-index: 3;
-      &:hover .navbar__menu_options{
+      &:hover .navbar__menu_options {
         opacity: 1;
       }
     }
