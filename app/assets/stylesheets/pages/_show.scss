@@ -1,0 +1,86 @@
+.show {
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  grid-template-areas:
+    "profile personal"
+    "badges financial";
+    padding: 0 60px;
+  &__profile {
+    grid-area: profile;
+    display: flex;
+    gap: 0 12px;
+    &_img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: $radius-sm;
+    }
+    &__container {
+      .profile__name {
+        color: $color-black;
+      }
+      .profile__running {
+        color: $color-lightgrey;
+      }
+      .profile__number {
+        color: $color-black;
+      }
+    }
+  }
+  &__table {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0 15px;
+    &_item {
+      display: inherit;
+      align-items: flex-start;
+      flex-flow: column nowrap;
+      gap: 2px 0;
+      max-width: 220px;
+      overflow: hidden;
+      .text {
+        white-space: nowrap;
+        &:first-child { font-weight: bold; } 
+      }
+    }
+  }
+  &__personal {
+    border-radius: $radius-md;
+    grid-area: personal;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 18px;
+    &_header {
+      color: $color-lilac;
+    }
+    .show__table {
+      width: clamp(320px, 90%, 470px);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  &__badges {
+    grid-area: badges;
+    .heading-2 {
+      color: $color-light-tomato;
+    }
+  }
+  &__financial {
+    grid-area: financial;
+    &_title { color: $color-lilac; }
+    &_total { color: $color-black; }
+    &_number {
+      color: $color-light-tomato;
+      &::before {
+        content: "R$ ";
+      }
+    }
+
+  }
+}
