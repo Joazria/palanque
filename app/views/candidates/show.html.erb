@@ -1,8 +1,8 @@
-<div class="show mt-lg">
+<div class="politician mt-lg">
   <div class="go-back"><i class="fas fa-angle-left"></i><p class="text">Voltar</p></div>
-  <div class="show__profile">
-    <img src="https://source.unsplash.com/200x200/?person,portrait" alt="" srcset="" class="show__profile_img">
-    <div class="show__profile_container">
+  <div class="politician__profile">
+    <img src="https://source.unsplash.com/200x200/?person,portrait" alt="" srcset="" class="politician__profile_img">
+    <div class="politician__profile_container">
       <h2 class="title profile__name">
         <%= @candidate.candidate_ballot_name %>
       </h2>
@@ -12,68 +12,68 @@
       <h2 class="heading-2 profile__number">
           <%= @candidate.nr_candidate %>
       </h2>
-      <div class="show__table mt-sm">
-        <div class="show__table_item">
+      <div class="politician__table mt-sm">
+        <div class="politician__table_item">
           <small class="text-small">Partido</small>
           <small class="text-small"><%= @candidate.party_candidate %></small>
         </div>
-        <div class="show__table_item">
+        <div class="politician__table_item">
           <small class="text-small">Coligação</small>
           <small class="text-small"><%= @candidate.ds_coligation_composition %></small>
         </div>
       </div>
     </div>
   </div>
-  <div class="show__personal">
-    <h1 class="title show__personal_header">Dados Pessoais</h1>
-    <div class="show__table mt-sm">
-      <div class="show__table_item">
+  <div class="politician__personal">
+    <h1 class="title politician__personal_header">Dados Pessoais</h1>
+    <div class="politician__table mt-sm">
+      <div class="politician__table_item">
         <small class="text">Nome Completo</small>
         <small class="text"><%= @candidate.name_candidate %></small>
       </div>
-      <div class="show__table_item">
+      <div class="politician__table_item">
         <small class="text">Data Nascimento</small>
         <small class="text"><%= @candidate.birth_dt %></small>
       </div>
     </div>
-    <div class="show__table mt-sm">
-      <div class="show__table_item">
+    <div class="politician__table mt-sm">
+      <div class="politician__table_item">
         <small class="text">E-mail</small>
         <small class="text"><%= @candidate.email_candidate %></small>
       </div>
-      <div class="show__table_item">
+      <div class="politician__table_item">
         <small class="text">Estado Civil</small>
         <small class="text"><%= @candidate.ds_marital_status %></small>
       </div>
     </div>
-    <div class="show__table mt-sm">
-      <div class="show__table_item">
+    <div class="politician__table mt-sm">
+      <div class="politician__table_item">
         <small class="text">Nacionalidade</small>
         <small class="text"><%= @candidate.ds_nacionality %></small>
       </div>
-      <div class="show__table_item">
+      <div class="politician__table_item">
         <small class="text">Genero</small>
         <small class="text"><%= @candidate.ds_gender %></small>
       </div>
     </div>
-    <div class="show__table mt-sm">
-      <div class="show__table_item">
+    <div class="politician__table mt-sm">
+      <div class="politician__table_item">
         <small class="text">Bandeiras</small>
         <small class="text"><%= @candidate.militancy %></small>
       </div>
-      <div class="show__table_item">
+      <div class="politician__table_item">
         <small class="text">Região de Atuação</small>
         <small class="text"><%= @candidate.acting_region %></small>
       </div>
     </div>
   </div>
-  <div class="show__badges">
+  <div class="politician__badges">
     <h2 class="heading-2">Em breve!</h2>
   </div>
-  <div class="show__financial">
-    <h2 class="show__financial_title title">Análise de extrato</h2>
-    <small class="text-small show__financial_total">Total bens declarados</small>
-    <h1 class="heading-1 show__financial_number"><%= @candidate.total_patrimony %></h1>
+  <div class="politician__financial">
+    <h2 class="politician__financial_title title">Análise de extrato</h2>
+    <small class="text-small politician__financial_total">Total bens declarados</small>
+    <h1 class="heading-1 politician__financial_number"><%= @candidate.total_patrimony %></h1>
   </div>
 </div>
 

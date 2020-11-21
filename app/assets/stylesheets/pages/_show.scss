@@ -1,4 +1,4 @@
-.show {
+.politician {
   min-height: 100vh;
   width: 100%;
   display: grid;
@@ -59,7 +59,7 @@
     &_header {
       color: $color-lilac;
     }
-    .show__table {
+    .politician__table {
       width: clamp(320px, 90%, 470px);
       display: grid;
       grid-template-columns: repeat(2, 1fr);
