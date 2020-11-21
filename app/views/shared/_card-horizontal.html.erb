@@ -2,7 +2,7 @@
   <div class="card__favorite">
     <i class="far fa-heart"></i>
   </div>
-  <img src="https://source.unsplash.com/200x200/?person,portrait" alt="<%= candidate.candidate_ballot_name %>" class="card__img">
+  <%= cl_image_tag candidate.photo.key, height: 120, width: 120, crop: :fill%>
   <div class="card__info">
     <h2 class="title card__name"><%= candidate.candidate_ballot_name %></h2>
     <p class="text-small card__ocupation"><%= candidate.running_to %></p>
@@ -21,3 +21,4 @@
     <% end %>
   </div>
 </div>
+

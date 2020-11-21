@@ -1,10 +1,6 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
 require 'csv'
 
@@ -12,8 +8,9 @@ csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
 filepath    = 'db/candidatos.csv'
 
 CSV.foreach(filepath, csv_options) do |row|
-  file = "photos/FSP#{row["SQ_CANDIDATO"]}_div.jpg"
- candidate = Candidate.new(
+  file_name = "FSP#{row["SQ_CANDIDATO"]}_div.jpg"
+  file = "public/photos/FSP#{row["SQ_CANDIDATO"]}_div.jpg"
+  candidate = Candidate.create(
     sq_candidate: row["SQ_CANDIDATO"],
     nr_candidate: row["NR_CANDIDATO"],
     name_candidate: row["NOME_CANDIDATO"].downcase.titleize,
@@ -32,8 +29,8 @@ CSV.foreach(filepath, csv_options) do |row|
     email_candidate: row["EMAIL"].downcase,
     running_to: row["DS_CARGO"].downcase.titleize
   )
-  candidate.photo.attach(io: file, filename: file, content_type: 'image/jpg')
-  candidate.save
+
+   candidate.photo.attach(io: open(file), filename: file_name, content_type: 'image/jpg')
 
   puts "#{row["NOME_CANDIDATO"]} criado"
 end
@@ -51,3 +48,26 @@ CSV.foreach(filepath, csv_options) do |row|
 
   puts "Bem de #{candidate.candidate_ballot_name} criado"
 end
+
+# candidate = Candidate.new(
+#     sq_candidate: "1234456",
+#     nr_candidate: "1223345",
+#     name_candidate: "BETINHO CARALHOU",
+#     party_candidate: "SEM PARTIDO",
+#     nr_party: "1620",
+#     total_patrimony: "100",
+#     ds_coligation_composition: "VERDE MACONHEIRO",
+#     ds_nacionality: "DO MUNDO",
+#     birth_dt: "14/03/1735",
+#     ds_gender: "indefinido",
+#     ds_marital_status: "quem sabe",
+#     ds_color_race: "Não tenho race, que não sou cachoro",
+#     ds_ocupation: "ocupado demais",
+#     education: "MACONHEIRO GRAUD 1",
+#     candidate_ballot_name: "BB Betinho the Best",
+#     email_candidate: "nãomecontato@pora.com",
+#     running_to: "apertador de beck"
+#   )
+#     candidate.photo.attach(io: open('db/photos/FSP250000658458_div.jpg'), filename: 'FSP250000658458_div.jpg')
+#     candidate.save
+

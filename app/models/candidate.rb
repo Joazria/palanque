@@ -2,8 +2,6 @@ class Candidate < ApplicationRecord
   has_many :bagdes
   has_one_attached :photo
 
-
-
   include PgSearch::Model
   pg_search_scope :search_by_candidate_ballot_name_and_party_candidate,
     against: [[ :candidate_ballot_name, 'A'],
