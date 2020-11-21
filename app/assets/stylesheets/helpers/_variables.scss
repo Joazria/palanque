@@ -1,0 +1,111 @@
+// Imports
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Poppins:wght@400;700&display=swap");
+
+// ---------- Colors ----------
+
+//Color Scale
+$color-marine: rgba(53, 80, 112, 1);
+$color-light-marine: rgba(80, 112, 149, 1);
+$color-lighter-marine: rgba(138, 165, 195, 1);
+$color-lilac: rgba(109, 89, 122, 1);
+$color-light-lilac: rgba(144, 117, 161, 1);
+$color-lighter-lilac: rgba(173, 150, 188, 1);
+$color-tomato: rgba(234, 85, 90, 1);
+$color-light-tomato: rgba(231, 107, 111, 1);
+$color-lighter-tomato: rgba(237, 158, 161, 1);
+$color-success: rgba(2, 195, 154, 1);
+$color-warning: rgba(249, 201, 59, 1);
+$color-bordo: rgba(181, 101, 118, 1);
+$color-light-bordo: rgba(189, 117, 132, 1);
+$color-lighter-bordo: rgba(206, 151, 163, 1);
+$color-laranja: rgba(215, 117, 65, 1);
+$color-light-laranja: rgba(230, 148, 104, 1);
+$color-lighter-laranja: rgba(234, 172, 139, 1);
+$color-white: rgba(250, 250, 250, 1);
+
+$gradient-soft: linear-gradient(
+  to left,
+  rgba(138, 165, 195, 0.3),
+  rgba(173, 150, 188, 0.3),
+  rgba(181, 101, 118, 0.3),
+  rgba(237, 158, 161, 0.3),
+  rgba(234, 172, 139, 0.3)
+);
+
+$gradient-hard: linear-gradient(
+  to left,
+  rgba(53, 80, 112, 0.3),
+  rgba(109, 89, 122, 0.3),
+  rgba(181, 101, 118, 0.3),
+  rgba(234, 85, 90, 0.3),
+  rgba(215, 117, 65, 0.3)
+);
+
+// Greyscale
+$color-black: rgb(26, 26, 26);
+$color-grey: rgb(79, 79, 79);
+$color-lightgrey: rgb(204, 204, 204);
+
+// Lists
+$btn-color-list: (
+  "success" $color-success $color-white,
+  "warning" $color-warning $color-black,
+  "danger" $color-tomato $color-white
+);
+
+// ---------- Fonts ----------
+$ft-poppins: "Poppins", sans-serif;
+$ft-noto: "Noto Sans", sans-serif;
+
+$line-height: 1.618 !default;
+
+$font-map: (
+  "heading-1": (
+    $ft-poppins,
+    2.9rem,
+    bold,
+  ),
+  "heading-2": (
+    $ft-poppins,
+    1.8rem,
+    bold,
+  ),
+  "subheading": (
+    $ft-poppins,
+    1.375rem,
+    200,
+  ),
+  "title": (
+    $ft-noto,
+    1.05rem,
+    bold,
+  ),
+  "text": (
+    $ft-noto,
+    1rem,
+    200,
+  ),
+  "text-small": (
+    $ft-noto,
+    0.75rem,
+    200,
+  ),
+);
+
+// ---------- Appearence ----------
+
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 20px;
+
+$shadow-sm: 0px 0px 12px -7px rgba(15, 15, 28, 0.2);
+$shadow-lg: 3px 0px 12px -4px rgba(15, 15, 28, 0.3);
+
+$input-border: 1px solid $color-lilac;
+
+// ---------- Utils ----------
+
+$spacer-map: ("sm" 8px, "md" 12px, "lg" 20px);
+
+$position-list: "t" "top", "b" "bottom", "l" "left", "r" "right", "x" "inline",
+  "y" "block";

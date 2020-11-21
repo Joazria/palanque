@@ -1,0 +1,62 @@
+.card {
+  border-radius: $radius-sm;
+  box-shadow: $shadow-lg;
+  flex: 1 0 320px;
+  gap: 8px;
+  padding: 15px;
+  &--horizontal {
+    display: flex;
+    height: 150px;
+    max-width: 360px;
+    position: relative;
+    .card__table {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      gap: 0 15px;
+      &_item {
+        display: inherit;
+        align-items: flex-start;
+        flex-flow: column nowrap;
+        gap: 2px 0;
+        max-width: 100px;
+        overflow: hidden;
+        .text-small {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          &:first-child { font-weight: bold; }
+        }
+      }
+    }
+  }
+  &__img {
+    border-radius: $radius-sm;
+    object-fit: cover;
+    height: clamp(120px, 80%, 100%);
+    width: 120px;
+  }
+  &__info { 
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    width: 100%;
+  }
+  &__name { color: $color-lilac; }
+  &__ocupation { color: $color-grey; }
+  &__favorite {
+    background: $color-white;
+    font-size: 1rem;
+    color: $color-marine;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    border-radius: 50% 50%;
+    height: 30px;
+    width: 30px;
+  }
+}

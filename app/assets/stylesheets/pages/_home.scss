@@ -1,1 +1,62 @@
-// Specific CSS for your home-page
+.home {
+  background-color: $color-white;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 200px 1fr 1fr;
+  grid-template-areas:
+    "search search"
+    "candidate candidate"
+    "suggest about";
+  min-height: 100vh;
+  width: 100%;
+  .search {
+    grid-area: search;
+    background: 
+      $gradient-hard,
+      image-url("bg-pattern.svg");
+    background-size: cover;
+    display: grid;
+    place-items: center;
+    position: relative;
+    .overlay {
+      background: $color-black;
+      mix-blend-mode: multiply;
+      opacity: 0.3;
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+    }
+    &__container {
+      color: $color-white;
+      text-align: center;
+      position: relative;
+      width: clamp(320px, 60%, 80ch);
+      z-index: 2;
+    }
+  }
+  .candidates {
+    grid-area: candidate;
+    padding: 0 60px;
+    &__title {
+      color: $color-lilac;
+    }
+    &__container {
+      display: flex;
+      align-items: center;
+      justify-content: stretch;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    &__card {
+      flex: 1 0 320px;
+      height: 150px;
+      width: 320px;
+      border-radius: $radius-sm;
+      box-shadow: $shadow-lg;
+    }
+  }
+}

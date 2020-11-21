@@ -1,0 +1,32 @@
+@use "mixins";
+
+.btn {
+  color: $color-black;
+  background-color: $color-lightgrey;
+  border-radius: $radius-sm;
+  min-height: 44px;
+  min-width: 120px;
+  transition:
+    color 0.3s ease-in-out,
+    background 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+  @include font-default("text");
+
+  @each $name, $bg, $color in $btn-color-list {
+    &-#{$name} {
+      background-color: $bg;
+      color: $color;
+      &:hover {
+        background-color: mix($color-black, $bg, 35%);
+      }
+      &:focus,
+      &:focus-within {
+        @include focus-shadow($bg);
+      }
+    }
+  }
+  &:disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}

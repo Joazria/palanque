@@ -1,0 +1,24 @@
+// alert alert-warning alert-dismissible fade show m-1
+
+.alert {
+  background-color: $color-white;
+  border-radius: $radius-md;
+  display: flex;
+  align-items: center;
+  gap: 0 20px;
+  width: max-content;
+  padding: 0.750rem 1.2rem;
+  position: fixed;
+  right: 20px;
+  bottom: 35px;
+  @extend .text;
+  &-warning {
+    background-color: $color-tomato;
+    color: $color-white;
+  }
+  .close {
+    background-color: transparent;
+    color: currentColor;
+    font-size: 1.2rem;
+  }
+}

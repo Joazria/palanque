@@ -1,0 +1,38 @@
+.navbar {
+  background-color: $color-lilac;
+  color: $color-lighter-tomato;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: 0 60px;
+  height: 60px;
+  width: 100%;
+  @media screen and (max-width: 420px) {
+    padding: 0 10px;
+  }
+  &__menu {
+    @extend .title;
+    display: inherit;
+    align-items: center;
+    gap: 0 40px;
+    &_item {
+      display: inherit;
+      align-items: center;
+      flex-wrap: nowrap;
+      gap: 0 8px;
+    }
+    &_dropdown {
+      display: inherit;
+      flex-flow: column nowrap;
+      position: relative;
+    }
+    &_toggler {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 60px;
+      width: max-content;
+    }
+  }
+}
