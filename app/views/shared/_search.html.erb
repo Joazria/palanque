@@ -1,0 +1,4 @@
+  <% simple_form_for :search, url: root_path, method: "GET", html: {class: 'form-search' } do |f| %>
+    <% f.input :name, input_html: { value: "" }%>   
+    <% f.submit "Buscar", class: "btn btn-success" %>
+  <% end %>

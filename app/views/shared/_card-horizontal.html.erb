@@ -1,0 +1,23 @@
+<div class="card card--horizontal">
+  <div class="card__favorite">
+    <i class="far fa-heart"></i>
+  </div>
+  <img src="https://source.unsplash.com/200x200/?person,portrait" alt="<%= candidate.candidate_ballot_name %>" class="card__img">
+  <div class="card__info">
+    <h2 class="title card__name"><%= candidate.candidate_ballot_name %></h2>
+    <p class="text-small card__ocupation"><%= candidate.running_to %></p>
+    <div class="card__table mt-sm">
+      <div class="card__table_item">
+        <small class="text-small">Partido</small>
+        <small class="text-small"><%= candidate.party_candidate %></small>
+      </div>
+      <div class="card__table_item">
+        <small class="text-small">Coligação</small>
+        <small class="text-small"><%= candidate.ds_coligation_composition %></small>
+      </div>
+    </div>
+    <%= link_to candidate_path(candidate), class: "link--fixed mt-sm" do %>
+      <p class="text">Conhecer candidato</p> <i class="fas fa-angle-right"></i>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+// --------- Spacers ----------
+
+/*
+  Utilização
+  Basta apenas colocar as classes .mt-sm (margin-top: 8px;)
+  ou px-lg (padding-block: 20px;).
+*/
+.m{
+  @each $position, $prop-name in $position-list {
+    &#{$position}{
+      @each $name, $size in $spacer-map {
+        &-#{$name} {
+          @if $prop-name == block or $prop-name == inline {
+            margin-#{$prop-name}-start: $size;
+            margin-#{$prop-name}-end: $size;
+          } @else {
+            margin-#{$prop-name}: $size;
+          }
+        }
+      }
+    }
+  }
+}
+
+.p{
+  @each $position, $prop-name in $position-list {
+    &#{$position}{
+      @each $name, $size in $spacer-map {
+        &-#{$name} {
+          @if $prop-name == block or $prop-name == inline {
+            padding-#{$prop-name}-start: $size;
+            padding-#{$prop-name}-end: $size;
+          } @else {
+            padding-#{$prop-name}: $size;
+          }
+        }
+      }
+    }
+  }
+}
+
+// --------- Fonts ----------
+
+@mixin font-default($font-name) {
+  $font: map-get($font-map, $font-name);
+  @if $font == null {
+    @error "Fonte #{$font-name} não disponível";
+  }
+  $family: nth($font, 1);
+  $size: nth($font, 2);
+  $weight: nth($font, 3);
+  
+  font: {
+    family: $family;
+    size: $size;
+    weight: $weight;
+  }
+
+  line-height: $line-height;
+}
+
+// --------- Focus Shadow ----------
+@mixin focus-shadow($color) {
+  $darker-color: mix($color-black, $color, 35%);
+  box-shadow: 0 0 0 2px $darker-color;
+}

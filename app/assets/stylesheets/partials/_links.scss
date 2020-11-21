@@ -1,0 +1,46 @@
+.link {
+  width: fit-content;
+  position: relative;
+  &--hoverable {
+    color: $color-lilac;
+    &::before{
+      content: "";
+      background: currentColor;
+      height: 2px;
+      width: 0;
+  
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      transition: width .4s ease-in-out;
+    }
+    &:hover::before {
+      width: 100%;
+    }
+  }
+  &--fixed {
+    align-self: flex-end;
+    color: $color-light-tomato;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    position: relative;
+    transition: color 0.4s ease-in-out;
+    & > .fas {
+      position: absolute;
+      top: 52%;
+      right: 0;
+      transform: translate(0, -50%);
+      transition: transform 0.4s ease-in-out;
+    }
+    & > .text {
+      margin-right: 12px;
+    }
+    &:hover {
+      color: $color-tomato;
+      & > .fas {
+        transform: translate(5px, -50%);
+      }
+    }
+  }
+}

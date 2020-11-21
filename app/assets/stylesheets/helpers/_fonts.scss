@@ -1,0 +1,11 @@
+/*
+  Esse mixin recebe as keys da "hash" de fontes do documento
+  _variables.scss e cria uma classe pra cada key chamando ela
+  como mixin dentro
+*/
+
+@each $font in map-keys($font-map) {
+ .#{unquote($font)} {
+   @include font-default($font);
+ }
+}

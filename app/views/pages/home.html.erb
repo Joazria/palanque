@@ -1,2 +1,25 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<main class="home">
+  <% # banner %>
+  <%= @candidate %>
+  <div class="search">
+    <span class="overlay"></span>
+    <div class="search__container">
+      <h2 class="heading-2">Conheça seu próximo candidato(a)</h2>
+      <%# render "shared/search" %>
+      <p class="text"> É muito melhor confiar em alguém quando você conhece essa pessoa, principalmente quando o futuro do seu município, estado ou país depende disso.</p>
+    </div>
+  </div>
+  <div class="candidates">
+    <h2 class="heading-2 candidates__title">Quem eleger?</h2>
+    <% # Filter %>
+    <div class="candidates__container mt-lg">
+      <% @candidates.first(8).each do |candidate| %>
+        <%= render partial: "shared/card-horizontal", locals: {
+            candidate: candidate,
+        } %>
+      <% end %>
+    </div>
+  </div>
+  <div class="suggestion">
+  </div>
+</main>
