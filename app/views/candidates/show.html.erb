@@ -1,9 +1,38 @@
-<h1><%= @candidate.candidate_ballot_name %></h1>
+<div class="show">
+  <div class="show__profile">
+    <img src="https://source.unsplash.com/200x200/?person,portrait" alt="" srcset="" class="show__profile_img">
+    <div class="show__profile_container">
+      <h2 class="title profile__name">
+        <%=@candidate.candidate_ballot_name%>
+      </h2>
+      <p class="text profile__running">
+        <%=@candidate.running_to%>
+      </p>
+      <h2 class="heading-2 profile__number">
+          <%=@candidate.nr_candidate%>
+      </h2>
+      <div class="show__table mt-sm">
+        <div class="show__table_item">
+          <small class="text-small">Partido</small>
+          <small class="text-small"><%= @candidate.party_candidate %></small>
+        </div>
+        <div class="show__table_item">
+          <small class="text-small">Coligação</small>
+          <small class="text-small"><%= @candidate.ds_coligation_composition %></small>
+        </div>
+    </div>
+    </div>
+  </div>
+  <div class="show__personal"></div>
+  <div class="show__badges"></div>
+  <div class="show__financial"></div>
+</div>
+
 <p>@candidate</p>
 <ul>
     <li><%=@candidate.sq_candidate%>sq_candidate</li>
-  <li><%=@candidate.nr_candidate%>nr_candidate</li>
-  <li><%=@candidate.name_candidate%>name_candidate</li>
+  <li>nr_candidate</li>
+  <li>name_candidate</li>
   <li><%=@candidate.party_candidate%>party_candidate</li>
   <li><%=@candidate.nr_party%>nr_party</li>
   <li><%=@candidate.total_patrimony%>total_patrimony</li>
@@ -17,6 +46,5 @@
     <li><%=@candidate.militancy%>militancy</li>
         <li><%=@candidate.acting_region%>acting_region</li>
         <li><%=@candidate.email_candidate%>e-mail</li>
-        <li><%=@candidate.running_to%>running to </li>
 </ul>
 

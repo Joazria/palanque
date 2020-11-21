@@ -1,0 +1,22 @@
+.show {
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "profile personal"
+    "badges financial";
+  &__profile {
+    grid-area: profile;
+  }
+  &__personal {
+    grid-area: personal;
+  }
+  &__badges {
+    grid-area: badges;
+  }
+  &__financial {
+    grid-area: financial;
+  }
+}

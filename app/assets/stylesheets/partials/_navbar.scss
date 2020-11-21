@@ -16,11 +16,11 @@
     display: inherit;
     align-items: center;
     gap: 0 40px;
-    &_options {
+    &__options {
       position: absolute;
       top: 100%;
+      padding: 8px;
       background: $color-lilac;
-      color: currentColor;
       width: 100%;
       opacity: 0;
     }
