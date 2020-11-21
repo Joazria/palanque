@@ -11,7 +11,7 @@ class CandidatesController < ApplicationController
   end
 
   def create
-    @canditae = Candidate.new(candidate_params)
+    @canditate = Candidate.new(candidate_params)
     @candidate.user = current_user
     if @candidate.save
       redirect_to @candidate, notice: "Um novo Candidato foi criado."
