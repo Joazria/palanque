@@ -2,11 +2,11 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
-    @candidates = Candidate.all
-    # @search = params["search"]
-    # if @search.present?
-    #   @name = @search["name"]
-    #   @candidates = Candidate.where(candidate_ballot_name: @name)
-    # end
+
+    if params[:query].present?
+      @candidates = Candidate.search_by_candidate_ballot_name_and_party_candidate(params[:query])
+    else
+      @candidates = Candidate.all
+    end
   end
 end
