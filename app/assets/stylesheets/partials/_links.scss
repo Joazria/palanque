@@ -44,3 +44,16 @@
     }
   }
 }
+
+.go-back {
+  grid-area: back;
+  @extend .link--fixed;
+  gap: 0 15px;
+  width: fit-content;
+  margin-left: 15px;
+  & > .fas {
+    right: initial !important;
+    top: 50% !important;
+    left: -15px;
+  }
+}
