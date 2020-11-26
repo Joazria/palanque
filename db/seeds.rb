@@ -12,7 +12,7 @@ csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
 filepath    = 'db/candidatos.csv'
 
 CSV.foreach(filepath, csv_options) do |row|
-  file = "photos/FSP#{row["SQ_CANDIDATO"]}_div.jpg"
+ file = "photos/FSP#{row["SQ_CANDIDATO"]}_div.jpg"
  candidate = Candidate.new(
     sq_candidate: row["SQ_CANDIDATO"],
     nr_candidate: row["NR_CANDIDATO"],
