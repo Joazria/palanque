@@ -1,7 +1,7 @@
 <div class="politician mt-lg">
   <div class="go-back"><i class="fas fa-angle-left"></i><p class="text">Voltar</p></div>
   <div class="show__profile">
-    <%= cl_image_tag @candidate.photo.key, width: 120, height: 120, crop: :fill, :class => "show__profile_img" %>
+    <%= cl_image_tag @candidate.photo.key, width: 240, height: 240, crop: :fill, :class => "show__profile_img" %>
     <div class="show__profile_container">
       <h2 class="title profile__name">
         <%= @candidate.candidate_ballot_name %>
