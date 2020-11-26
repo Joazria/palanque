@@ -73,7 +73,7 @@
   <div class="politician__financial">
     <h2 class="politician__financial_title title">Análise de extrato</h2>
     <small class="text-small politician__financial_total">Total bens declarados</small>
-    <h1 class="heading-1 politician__financial_number"><%= @candidate.total_patrimony %></h1>
+    <h1 class="heading-1 politician__financial_number"><%= @candidate.total_patrimony.round %></h1>
   </div>
 </div>
 
