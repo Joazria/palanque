@@ -1,10 +1,11 @@
-<div class="card card--horizontal">
+<div class="card card--horizontal card-candidate">
   <div class="card__favorite">
     <i class="far fa-heart"></i>
   </div>
-  <%= cl_image_tag candidate.photo.key,
+  <% if candidate.photo_attachment %>
+    <%= cl_image_tag candidate.photo.key,
       width: 120, height: 120, crop: :fill %>
-
+  <% end %>
   <div class="card__info">
     <h2 class="title card__name"><%= candidate.candidate_ballot_name %></h2>
     <p class="text-small card__ocupation"><%= candidate.running_to %></p>
