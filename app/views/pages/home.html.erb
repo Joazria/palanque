@@ -1,5 +1,4 @@
 <main class="home">
-  <% # banner %>
   <%= @candidate %>
   <div class="search">
     <span class="overlay"></span>
@@ -11,9 +10,8 @@
   </div>
   <div class="candidates">
     <h2 class="heading-2 candidates__title">Quem eleger?</h2>
-    <% # Filter %>
     <div class="candidates__container mt-lg">
-      <% @candidates.first(8).each do |candidate| %>
+      <% @candidates.shuffle.first(8).each do |candidate| %>
         <%= render partial: "shared/card-horizontal", locals: {
             candidate: candidate,
         } %>
