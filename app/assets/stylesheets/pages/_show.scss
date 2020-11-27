@@ -76,11 +76,6 @@
     grid-area: financial;
     &_title { color: $color-lilac; }
     &_total { color: $color-black; }
-    &_number {
-      color: $color-light-tomato;
-      &::before {
-        content: "R$ ";
-      }
-    }
+    &_number { color: $color-light-tomato; }
   }
 }
