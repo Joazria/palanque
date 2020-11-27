@@ -35,13 +35,18 @@ class CandidatesController < ApplicationController
 
   def edit
   end
-
+  
+  def number_to_currency_br(number)
+    number_to_currency(number, :unit => "R$ ", :separator => ",", :delimiter => ".")
+  end
+  
   private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_candidate
     @candidate = Candidate.find(params[:id])
   end
+
 
   def candidate_params
     params.require(:candidate).permit(

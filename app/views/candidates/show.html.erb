@@ -1,5 +1,5 @@
 <div class="politician mt-lg">
-  
+
   <div class="go-back"><i class="fas fa-angle-left"></i><p class="text">Voltar</p></div>
   <div class="politician__profile">
     <%= cl_image_tag @candidate.photo.key, width: 240, height: 240, crop: :fill, :class => "politician__profile_img" %>
@@ -74,7 +74,9 @@
   <div class="politician__financial">
     <h2 class="politician__financial_title title">Análise de extrato</h2>
     <small class="text-small politician__financial_total">Total bens declarados</small>
-    <h1 class="heading-1 politician__financial_number"><%= @candidate.total_patrimony.round %></h1>
+    <h1 class="heading-1 politician__financial_number">
+      <%= number_to_currency(@candidate.total_patrimony.to_f, :unit => "R$ ", :separator => ",", :delimiter => ".") %>
+    </h1>
   </div>
 </div>
 
