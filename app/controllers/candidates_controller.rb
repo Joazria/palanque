@@ -11,7 +11,7 @@ class CandidatesController < ApplicationController
   end
 
   def create
-    @canditate = Candidate.new(candidate_params)
+    @candidate = Candidate.new(candidate_params)
     @candidate.user = current_user
     if @candidate.save
       redirect_to @candidate, notice: "Um novo Candidato foi criado."
@@ -35,11 +35,11 @@ class CandidatesController < ApplicationController
 
   def edit
   end
-  
+
   def number_to_currency_br(number)
     number_to_currency(number, :unit => "R$ ", :separator => ",", :delimiter => ".")
   end
-  
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
