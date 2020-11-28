@@ -5,7 +5,9 @@
     <h2 class="text card-mini__name"><%= candidate.candidate_ballot_name %></h2>
     <div class="card-mini__options">
       <div class="card-mini__links">
-        <i class="fas fa-address-card"></i>
+        <%= link_to candidate_path(candidate) do %>
+          <i class="fas fa-address-card"></i>
+        <% end %>
         <%= link_to favorite_path(candidate.favorites.find_by(user: current_user)),
           method: :delete,
           remote: true,

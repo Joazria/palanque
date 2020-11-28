@@ -99,6 +99,9 @@
     font-size: 1.4rem;
     min-width: 88px;
     position: relative;
+    & > .fas.fa-address-card {
+      color: $color-marine;
+    }
   }
   &__overlay {
     grid-area: card;
