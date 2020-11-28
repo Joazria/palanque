@@ -1,5 +1,6 @@
 class FavoritesController < ApplicationController
-  before_action :set_candidate
+  before_action :set_candidate, except: :destroy
+  before_action :set_favorite, only: :destroy
 
   def new
     @favorite = Favorite.new
@@ -13,10 +14,14 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    Favorite.where(user_id: current_user.id, candidate_id: @candidate.id).first.destroy
+    @favorite.destroy
   end
 
   def set_candidate
-    @candidate = Candidate.find(params[:id])
+    @candidate = Candidate.find(params[:candidate_id])
+  end
+
+  def set_favorite
+    @favorite = Favorite.find(params[:id])
   end
 end
