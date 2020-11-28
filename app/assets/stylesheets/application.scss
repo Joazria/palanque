@@ -13,12 +13,15 @@
 @import "partials/navbar";
 @import "partials/links";
 @import "partials/cards";
+@import "partials/separators";
 @import "partials/forms/inputs";
 @import "partials/forms/alerts";
+@import "partials/forms/search";
 
 // Pages
 @import "pages/home";
 @import "pages/show";
+@import "pages/profile";
 
 
 // External libraries

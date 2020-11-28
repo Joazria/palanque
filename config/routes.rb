@@ -6,5 +6,9 @@ Rails.application.routes.draw do
   resources :candidates, only: [:show, :edit, :update] do
     resources :favorites, only: [:new, :create]
   end
+  
   resources :favorites, only: [:edit, :update, :destroy, :show, :index]
+  
+  get '/profile', to: 'pages#profile'
+
 end

@@ -1,0 +1,37 @@
+<div class="profile mt-lg">
+  <div class="profile__edit">
+    <div class="profile__img">
+      <h2 class="heading-2">FL</h2>
+    </div>
+    <div class="profile__info">
+      <h2 class="profile__name heading-2">Fulani</h2>
+      <p class="profile__location text">Vota em são paulo</p>
+      <div class="profile__table mt-md">
+        <div class="profile__table-item">
+          <small class="text">Favoritos</small>
+          <small class="text">32</small>
+        </div>
+        <div class="profile__table-item">
+          <small class="text">Email</small>
+          <small class="text"> <%= current_user.email %> </small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="profile__form">
+    <h2 class="profile__form-title title">Editar Perfil</h2>
+    <% # render partial: "shared/form-edit-user" %>
+  </div>
+
+  <div class="profile__favorite">
+    <h2 class="profile__favorite-title title">Favoritos</h2>
+    <span class="separator"></span>
+    <button class="profile__filter mt-sm">
+      <i class="fas fa-filter"></i><p class="text">Filtrar</p>
+    </button>
+    <div class="profile__favorites-container">
+      <%# condicional pra carregar os favoritos %>
+      <%= render partial: "shared/card-mini" %>
+    </div>
+  </div>
+</div>

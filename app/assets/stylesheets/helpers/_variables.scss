@@ -49,6 +49,7 @@ $color-lightgrey: rgb(204, 204, 204);
 // Lists
 $btn-color-list: (
   "success" $color-success $color-white,
+  "lilac" $color-lighter-lilac $color-white,
   "warning" $color-warning $color-black,
   "danger" $color-tomato $color-white
 );
