@@ -3,7 +3,9 @@ class CandidatesController < ApplicationController
     before_action :set_candidate, only: [:show, :edit, :update, :destroy]
 
   def show
-    @favorite = Favorite.where(user_id: current_user.id, candidate_id: @candidate.id).first
+    if user_signed_in?
+     @favorite = Favorite.where(user_id: current_user.id, candidate_id: @candidate.id).first
+    end
   end
 
   def new

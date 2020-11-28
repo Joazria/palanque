@@ -79,12 +79,18 @@
     </h1>
   </div>
 </div>
-<% if @favorite.nil? %>
-    <%= link_to candidate_favorites_path(@candidate), method: :post, remote: true do %>
-      <i class="far fa-heart"></i> favoritar
+  <% if user_signed_in? %>
+    <% if @favorite.nil? %>
+        <%= link_to candidate_favorites_path(@candidate), method: :post, remote: true do %>
+          <i class="far fa-heart"></i> favoritar
+        <% end %>
+    <% else %>
+      <%= link_to favorite_path(@favorite), method: :delete, remote: true do%>
+          <i class="fas fa-heart"></i> desfavoritar
+      <% end %>
     <% end %>
-<% else %>
-  <%= link_to favorite_path(@favorite), method: :delete, remote: true do%>
-      <i class="fas fa-heart"></i> desfavoritar
+    <% else %>
+      <%= link_to new_user_session_path do %>
+          <i class="far fa-heart"></i> Log in para favoritar
+        <% end %>
   <% end %>
-<% end %>
