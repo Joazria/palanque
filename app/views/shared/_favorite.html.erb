@@ -1,0 +1,21 @@
+  <% if user_signed_in? %>
+    <% if @favorite.nil? %>
+        <%= link_to candidate_favorites_path(@candidate),
+          method: :post,
+          remote: true,
+          class: "favorite favorite--show" do %>
+          <i class="far fa-heart"></i>
+        <% end %>
+    <% else %>
+      <%= link_to favorite_path(@favorite),
+        method: :delete,
+        remote: true,
+        class: "favorite favorite--show" do %>
+          <i class="fas fa-heart red"></i>
+      <% end %>
+    <% end %>
+  <% else %>
+      <%= link_to new_user_session_path, class: "favorite" do %>
+        <i class="far fa-heart"></i> Log in para favoritar
+      <% end %>
+  <% end %>

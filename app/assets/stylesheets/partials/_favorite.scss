@@ -1,0 +1,20 @@
+.favorite {
+  background: $color-white;
+  font-size: 1rem;
+  color: $color-marine;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  border-radius: 50% 50%;
+  height: 30px;
+  width: 30px;
+  &--show {
+    top: -4px;
+    left: -4px;
+  }
+  &--profile {
+    left: -4px;
+  }
+}

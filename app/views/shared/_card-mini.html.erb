@@ -1,14 +1,19 @@
 <div class="card-mini">
-  <img src="https://source.unsplash.com/140x140/?profile" alt="" class="card-mini__img">
+  <%= cl_image_tag candidate.photo.key, class: "card-mini__img" %>
   <span class="card-mini__overlay"></span>
   <div class="card-mini__info">
-    <h2 class="text card-mini__name">Teste</h2>
+    <h2 class="text card-mini__name"><%= candidate.candidate_ballot_name %></h2>
     <div class="card-mini__options">
       <div class="card-mini__links">
         <i class="fas fa-address-card"></i>
-        <i class="fas fa-heart"></i>
+        <%= link_to favorite_path(candidate.favorites.find_by(user: current_user)),
+          method: :delete,
+          remote: true,
+          class: "favorite favorite--profile" do %>
+            <i class="fas fa-heart red"></i>
+        <% end %>
       </div>
-      <h2 class="card-mini__candidate-number title">13855</h2>
+      <h2 class="card-mini__candidate-number title"><%= candidate.nr_candidate %></h2>
     </div>
   </div>
 </div>

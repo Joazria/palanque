@@ -110,3 +110,8 @@ $spacer-map: ("sm" 8px, "md" 12px, "lg" 20px);
 
 $position-list: "t" "top", "b" "bottom", "l" "left", "r" "right", "x" "inline",
   "y" "block";
+
+// --------- Helpers ---------
+.red {
+  color: $color-tomato;
+}

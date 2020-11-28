@@ -1,7 +1,4 @@
 <div class="card card--horizontal card-candidate">
-  <div class="card__favorite">
-    <i class="far fa-heart"></i>
-  </div>
   <% if candidate.photo_attachment %>
     <%= cl_image_tag candidate.photo.key,
       width: 120, height: 120, crop: :fill %>
