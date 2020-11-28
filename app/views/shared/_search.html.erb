@@ -1,8 +1,8 @@
-<%= form_tag root_path, method: :get do %>
+<%= form_tag root_path, method: :get, class: "search-container my-md" do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
     placeholder: "Procura o nome de um candidato"
   %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <%= submit_tag "Search", class: "btn btn-lilac" %>
 <% end %>

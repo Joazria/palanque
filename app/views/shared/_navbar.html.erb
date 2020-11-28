@@ -16,7 +16,9 @@
         </button>
         <ul class="navbar__menu_options px-sm py-sm" aria-labelledby="navbarDropdown">
           <li class="navbar__menu_options__item">
-            <%= link_to "Perfil", "#", class: "navbar__menu_options__link" %>
+            <%= link_to profile_path, class: "navbar__menu_options__link" do %>
+              Perfil
+            <% end %>
           </li>
           <li class="navbar__menu_options__item">
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar__menu_options__link" %>

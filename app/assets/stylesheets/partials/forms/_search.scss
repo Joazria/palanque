@@ -1,0 +1,9 @@
+.search-container {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: initial !important;
+  .form-control {
+    height: 44px;
+    flex: 1;
+  }
+}
