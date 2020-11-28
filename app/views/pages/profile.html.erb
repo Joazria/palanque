@@ -31,7 +31,11 @@
     </button>
     <div class="profile__favorites-container">
       <%# condicional pra carregar os favoritos %>
-      <%= render partial: "shared/card-mini" %>
+      <% @candidates.each do |candidate| %>
+        <%= render partial: "shared/card-mini", locals: {
+          candidate: candidate
+        } %>
+      <% end %>
     </div>
   </div>
 </div>

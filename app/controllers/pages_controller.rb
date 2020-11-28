@@ -10,5 +10,8 @@ class PagesController < ApplicationController
   end
 
   def profile
+    @favorite = Favorite.where(user_id: current_user.id)
+    # @candidates = Candidate.includes(:favorites).where("favorites.user_id = ?", current_user.id)
+    @candidates = Candidate.includes(:favorites).where(favorites: { user_id: current_user.id })
   end
 end

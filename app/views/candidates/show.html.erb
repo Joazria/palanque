@@ -1,9 +1,9 @@
 <div class="politician mt-lg">
-  
   <%= link_to root_path, class: "go-back" do %>
     <i class="fas fa-angle-left"></i><p class="text">Voltar</p>
   <% end %>
   <div class="politician__profile">
+    <%= render partial: "shared/favorite" %>
     <%= cl_image_tag @candidate.photo.key, width: 240, height: 240, crop: :fill, :class => "politician__profile_img" %>
     <div class="politician__profile_container">
       <h2 class="title profile__name">
@@ -81,18 +81,4 @@
     </h1>
   </div>
 </div>
-  <% if user_signed_in? %>
-    <% if @favorite.nil? %>
-        <%= link_to candidate_favorites_path(@candidate), method: :post, remote: true do %>
-          <i class="far fa-heart"></i> favoritar
-        <% end %>
-    <% else %>
-      <%= link_to favorite_path(@favorite), method: :delete, remote: true do%>
-          <i class="fas fa-heart"></i> desfavoritar
-      <% end %>
-    <% end %>
-    <% else %>
-      <%= link_to new_user_session_path do %>
-          <i class="far fa-heart"></i> Log in para favoritar
-        <% end %>
-  <% end %>
+
