@@ -4,7 +4,7 @@ class CandidatesController < ApplicationController
 
   def show
     if user_signed_in?
-     @favorite = Favorite.where(user_id: current_user.id, candidate_id: @candidate.id).first
+     @favorite = Favorite.find_by(user_id: current_user.id, candidate_id: @candidate.id)
     end
   end
 

@@ -1,27 +1,23 @@
 class FavoritesController < ApplicationController
-  before_action :set_candidate, except: :destroy
-  before_action :set_favorite, only: :destroy
-
-  def new
-    @favorite = Favorite.new
-  end
 
   def create
+    @candidate = Candidate.find(params[:candidate_id])
     @favorite = Favorite.new
     @favorite.user = current_user
     @favorite.candidate = @candidate
-    @favorite.save
+    if @favorite.save
+    redirect_to candidate_path(@candidate)
+    end
+
   end
 
   def destroy
-    @favorite.destroy
-  end
-
-  def set_candidate
-    @candidate = Candidate.find(params[:candidate_id])
-  end
-
-  def set_favorite
     @favorite = Favorite.find(params[:id])
+    if @favorite.destroy
+    redirect_back(fallback_location: candidate_path(@favorite.candidate,
+      anchor: "candidate_#{@favorite.candidate.id}"))
+    end
+
   end
+
 end
