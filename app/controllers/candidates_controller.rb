@@ -4,13 +4,15 @@ class CandidatesController < ApplicationController
 
   def show
     if user_signed_in?
-     @favorite = Favorite.find_by(user_id: current_user.id, candidate_id: @candidate.id)
+    @favorite = Favorite.find_by(user_id: current_user.id, candidate_id: @candidate.id)
+    @badge = Badge.new
+    @badge.candidate = @candidate
+    @badge.user = current_user
     end
   end
 
   def new
   @candidate = Candidate.new
-
   end
 
   def create

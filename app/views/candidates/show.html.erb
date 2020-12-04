@@ -80,5 +80,9 @@
       <%= number_to_currency(@candidate.total_patrimony.to_f, :unit => "R$ ", :separator => ",", :delimiter => ".") %>
     </h1>
   </div>
+  <%= simple_form_for [@candidate, @badge] do |f| %>
+  <%= f.input :name, collection: ["ambientalista", "conservador", "progressista"] %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+  <%#= link_to "delete badge", badge_path(@badge), method: :delete %>
 </div>
-
