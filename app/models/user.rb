@@ -6,6 +6,5 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true
   has_many :bagdes
-  has_many :favorites
   has_many :candidates
 end

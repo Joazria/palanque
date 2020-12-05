@@ -1,7 +1,7 @@
 <div class="card card--horizontal card-candidate">
   <% if candidate.photo_attachment %>
     <%= cl_image_tag candidate.photo.key,
-      width: 120, height: 120, crop: :thumb %>
+      width: 120, height: 120, crop: :fill %>
   <% end %>
   <div class="card__info">
     <h2 class="title card__name"><%= candidate.candidate_ballot_name %></h2>
