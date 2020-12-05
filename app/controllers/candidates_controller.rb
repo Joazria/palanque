@@ -4,6 +4,7 @@ class CandidatesController < ApplicationController
 
   def show
     @candidate_patrimony = Candidate.find(params[:id]).properties
+    @badge_color = ["marine", "lilac", "tomato", "success", "bordo", "laranja"]
     if user_signed_in?
       @favorite = Favorite.find_by(user_id: current_user.id, candidate_id: @candidate.id)
       @badge = Badge.new
@@ -49,13 +50,19 @@ class CandidatesController < ApplicationController
     number_to_currency(number, :unit => "R$ ", :separator => ",", :delimiter => ".")
   end
 
+  def shuffle_candidate
+    @new_candidate = Candidate.all.sample
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_candidate
     @candidate = Candidate.find(params[:id])
+
   end
 
+    helper_method :shuffle_candidate
 
   def candidate_params
     params.require(:candidate).permit(
