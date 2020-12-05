@@ -4,5 +4,5 @@ class Badge < ApplicationRecord
 
   # validate scope: não pode ter outro badge com um mesmo nome, candidato e user
   # validates :name, uniqueness: { scope: :user_id }
-  validates :name, uniqueness: { scope: [:candidate_id, :user_id] }
+  validates :name, uniqueness: { scope: [:candidate_id, :user_id] }, presence: true, allow_blank: false
 end
