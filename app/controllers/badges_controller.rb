@@ -16,13 +16,13 @@ class BadgesController < ApplicationController
 
   end
 
-  def destroy
-    @badge = Badge.find(params[:id])
-    @badge.destroy
-    redirect_back(fallback_location: candidate_path(@badge.candidate,
-      anchor: "candidate_#{@badge.candidate.id}"))
+  #def destroy
+    #@badge = Badge.find(params[:id])
+    #@badge.destroy
+    #redirect_back(fallback_location: candidate_path(@badge.candidate,
+      #anchor: "candidate_#{@badge.candidate.id}"))
 
-  end
+  #end
 
   private
 
