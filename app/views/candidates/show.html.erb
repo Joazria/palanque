@@ -26,6 +26,13 @@
         </div>
       </div>
     </div>
+    <% @new_candidate = shuffle_candidate %>
+    <%= link_to candidate_path(@new_candidate) do %>
+      <button class="btn btn-candidate mt-md">
+        <span class="title">Descubra outro candidato</span>
+        <i class="fas fa-random"></i>
+      </button>
+    <% end %>
   </div>
   <div class="politician__personal">
     <h1 class="title politician__personal_header">Dados Pessoais</h1>
@@ -71,36 +78,32 @@
     </div>
   </div>
   <div class="politician__badges">
-  <% if user_signed_in? %>
-    <%= simple_form_for [@candidate, @badge] do |f| %>
-      <%= f.input :name, label: false, include_blank: false, collection: ["Ambientalista", "Conservador", "Progressista", "Liberal", "Intervencionista", "Esquerda", "Direita", "Centro", "Ruralista", "Socialista", "Vidas Negras Importam", "Direitos das Mulheres", "Direitos Humanos", "Direito à Saúde", "Direito à Educação", "Direito ao Trabalho", "Direitos da População LGBTQIA+", "Policiamento Duro e Ostensivo", "Direito dos Povos Indígenas", "Direitos dos Povos Quilombolas e Tradicionais", "Direito à Terra e ao Território", "Direito a Moradia", "Legalização da Maconha", "Família Tradicional"] %>
-      <%= f.button :submit, class: "btn btn-success" %>
-    <% end %>
-  <% end %>
-  <div class="politician__badges-container">
-    <% @badges_candidate.each do |badge| %>
-      <%= render partial: "shared/badge", locals: {
-      badge: badge.name,
-      count: @badges_candidate.where(name: badge.name).count,
-      color: @badge_color.sample
-    } %>
-    <% end %>
+    <div class="politician__badges-title">
+      <h2 class="heading-2">Conhece esse político?</h2>
+      <p class="text">Vote nos valores ou pautas você acha que ele se identifica.</p>
     </div>
-    <%= link_to "https://divulgacandcontas.tse.jus.br/divulga/#/candidato/2020/2030402020/71072/#{@candidate.sq_candidate}", :target => "_blank" do %>
-    <div class="politician__link">
-      <%= image_tag("book.svg")%>
-      <p class="politician__link-text text">Mais Informações</p>
-    </div>
+    <% if user_signed_in? %>
+      <%= simple_form_for [@candidate, @badge] do |f| %>
+        <%= f.input :name, label: false, include_blank: false, collection: ["Ambientalista", "Conservador", "Progressista", "Liberal", "Intervencionista", "Esquerda", "Direita", "Centro", "Ruralista", "Socialista", "Vidas Negras Importam", "Direitos das Mulheres", "Direitos Humanos", "Direito à Saúde", "Direito à Educação", "Direito ao Trabalho", "Direitos da População LGBTQIA+", "Policiamento Duro e Ostensivo", "Direito dos Povos Indígenas", "Direitos dos Povos Quilombolas e Tradicionais", "Direito à Terra e ao Território", "Direito a Moradia", "Legalização da Maconha", "Família Tradicional"] %>
+        <%= f.button :submit, class: "btn btn-success" %>
+      <% end %>
     <% end %>
-
-    <%= render partial: "shared/badge" %>
-    <br>
-    <div class="btn btn-success">
-     <% @new_candidate = shuffle_candidate %>
-      <%= link_to "descobre um outro candidate",  candidate_path(@new_candidate)%>
+    <div class="politician__badges-container">
+      <% @badges_candidate.each do |badge| %>
+        <%= render partial: "shared/badge", locals: {
+        badge: badge.name,
+        count: @badges_candidate.where(name: badge.name).count,
+        color: @badge_color.sample
+        } %>
+      <% end %>
       </div>
-
-  </div>
+      <%= link_to "https://divulgacandcontas.tse.jus.br/divulga/#/candidato/2020/2030402020/71072/#{@candidate.sq_candidate}", :target => "_blank" do %>
+        <div class="politician__link">
+          <%= image_tag("book.svg")%>
+          <p class="politician__link-text text">Mais Informações</p>
+        </div>
+      <% end %>
+    </div>
   <div class="politician__financial">
     <h2 class="politician__financial_title title">Análise de extrato</h2>
     <small class="text-small politician__financial_total">Total bens declarados</small>

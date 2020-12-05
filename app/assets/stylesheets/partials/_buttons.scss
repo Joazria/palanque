@@ -30,3 +30,53 @@
     pointer-events: none;
   }
 }
+
+.btn-candidate {
+  background: $color-light-tomato;
+  border: none;
+  border-radius: 100px;
+  color: #fafafa;
+  outline: none;
+  overflow: hidden;
+  padding: 0.250rem 1rem;
+  position: relative;
+  transition: box-shadow .2s ease-in-out;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  span {
+    position: relative;
+    width: 16ch;
+    text-align: left;
+  }
+  i {
+    font-size: 2rem;
+  }
+  &:hover {
+    box-shadow: 
+      0px 5px 11px -7px rgb(112, 112, 112);
+    &::before {
+      --size: 400px;
+    }
+  }
+  &::before {
+    --size: 0;
+    content: '';
+    background: radial-gradient(
+      circle closest-side,
+      $color-lilac,
+      $color-bordo,
+      transparent
+    );
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    transform: translate(-50%, -50%);
+    width: var(--size);
+    height: var(--size);
+    transition: 
+      width .2s ease,
+      height .2s ease-out;
+  }
+}
+

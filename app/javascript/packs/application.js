@@ -15,5 +15,14 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+document.querySelector('.btn.btn-candidate').onmousemove = event => {
+  const x = event.pageX - event.target.offsetLeft;
+  
+  const y = event.pageY - event.target.offsetTop;
+  
+  event.target.style.setProperty('--x', `${x}px`);
+  event.target.style.setProperty('--y', `${y}px`)
+};
+
 
 import "controllers"
