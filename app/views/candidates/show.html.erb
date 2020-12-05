@@ -61,17 +61,22 @@
     </div>
     <div class="politician__table mt-sm">
       <div class="politician__table_item">
-        <small class="text">Bandeiras</small>
-        <small class="text"><%= @candidate.militancy %></small>
+        <small class="text">Ocupação</small>
+        <small class="text"><%= @candidate.ds_ocupation %></small>
       </div>
       <div class="politician__table_item">
-        <small class="text"m>Região de Atuação</small>
-        <small class="text"><%= @candidate.acting_region %></small>
+        <small class="text"m>Grau de Instrução</small>
+        <small class="text"><%= @candidate.education %></small>
       </div>
     </div>
   </div>
   <div class="politician__badges">
     <h2 class="heading-2">Em breve!</h2>
+    <% if @badges_candidate.where(name: "Ruralista").count > 0 %>
+      <h3>Ruralista</h3>
+      <%= @badges_candidate.where(name: "Ruralista").count %>
+    <% end %>
+    <%= render partial: "shared/badge" %>
   </div>
   <div class="politician__financial">
     <h2 class="politician__financial_title title">Análise de extrato</h2>
@@ -79,6 +84,15 @@
     <h1 class="heading-1 politician__financial_number">
       <%= number_to_currency(@candidate.total_patrimony.to_f, :unit => "R$ ", :separator => ",", :delimiter => ".") %>
     </h1>
+    <%= render partial: "shared/patrimony-table", locals: {
+      patrimony: @candidate_patrimony
+    } %>
   </div>
+  <% if user_signed_in? %>
+    <%= simple_form_for [@candidate, @badge] do |f| %>
+    <%= f.input :name, label: false, collection: ["Ambientalista", "Conservador", "Progressista", "Liberal", "Intervencionista", "Esquerda", "Direita", "Centro", "Ruralista", "Socialista", "Vidas Negras Importam", "Direitos das Mulheres", "Direitos Humanos", "Direito à Saúde", "Direito à Educação", "Direito ao Trabalho", "Direitos da População LGBTQIA+", "Policiamento Duro e Ostensivo", "Direito dos Povos Indígenas", "Direitos dos Povos Quilombolas e Tradicionais", "Direito à Terra e ao Território", "Direito a Moradia", "Legalização da Maconha", "Família Tradicional"] %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+    <% end %>
+  <% end %>
+  <%#= link_to "delete badge", badge_path(@badge), method: :delete %>
 </div>
-

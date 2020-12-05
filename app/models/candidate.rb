@@ -1,6 +1,7 @@
 class Candidate < ApplicationRecord
-  has_many :bagdes
+  has_many :badges
   has_many :favorites
+  has_many :properties
   has_one_attached :photo
 
 
