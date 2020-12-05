@@ -1,17 +1,22 @@
 <div class="profile mt-lg">
   <div class="profile__edit">
     <div class="profile__img">
-      <h2 class="heading-2">
-        <%= current_user.username.slice(0,2).upcase %>
-      </h2>
+
+      <% if current_user.username.slice(0,2).upcase %>
+    <%= cl_image_tag @current_user.avatar.key,  :width => 40, :height => 40, :gravity => "faces",  class: "profile__img" %>
+    <% else %>
+    <h2 class="heading-2">FL</h2>
+  <% end %>
+
     </div>
     <div class="profile__info">
-      <h2 class="profile__name heading-2"> <%= current_user.username %> </h2>
+      <h2 class="profile__name heading-2"> <%= @current_user.username %> </h2>
+
       <p class="profile__location text">Vota em são paulo</p>
       <div class="profile__table mt-md">
         <div class="profile__table-item">
           <small class="text">Favoritos</small>
-          <small class="text"><%= current_user.favorites.all.length %> </small>
+          <small class="text"> <%= current_user.favorites.count %></small>
         </div>
         <div class="profile__table-item">
           <small class="text">Email</small>
@@ -19,6 +24,11 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="profile__form">
+    <h2 class="profile__form-title title"><%= link_to 'Edit perfil', edit_user_registration_path %></h2>
+    <% # render partial: "shared/form-edit-user" %>
   </div>
 
   <div class="profile__favorite">

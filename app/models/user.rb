@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true
   has_many :badges
-  has_many :favorites
   has_many :candidates
+  has_many :favorites
+  has_one_attached :avatar
 end
