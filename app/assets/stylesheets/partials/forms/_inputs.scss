@@ -41,6 +41,11 @@ label {
   }
 }
 
+.simple_form.new_badge {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
 .form-check {
   display: flex;
   align-items: center;
@@ -48,15 +53,22 @@ label {
 }
 
 .form-control {
-  border: $input-border;
-  border-radius: $radius-sm;
-  color: $color-black;
-  padding: 0.750rem 1rem;
-  height: 35px;
-  width: clamp(270px, 100%, 400px);
-  @extend .text;
+  &:not(select) {
+    border: $input-border;
+    border-radius: $radius-sm;
+    color: $color-black;
+    padding: 0.750rem 1rem;
+    height: 35px;
+    width: clamp(270px, 100%, 400px);
+    @extend .text;
+  }
 }
-
+select.form-control {
+  height: 100%;
+  padding: 0.250rem;
+  @extend .text;
+  color: $color-black;
+}
 .text-muted {
   @extend .text-small;
   color: $color-grey;
