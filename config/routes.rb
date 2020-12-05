@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   resources :badges, only: :destroy
 
   get '/profile', to: 'pages#profile'
+
+  get '/all', to: 'pages#all'
+
   # get '/shuffle_candidate', to: 'candidates#show'
+
 
 end

@@ -14,4 +14,8 @@ class PagesController < ApplicationController
     # @candidates = Candidate.includes(:favorites).where("favorites.user_id = ?", current_user.id)
     @candidates = Candidate.includes(:favorites).where(favorites: { user_id: current_user.id })
   end
+
+  def all
+   @candidates = Candidate.all
+  end
 end
