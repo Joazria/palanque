@@ -71,6 +71,11 @@
     </div>
   </div>
   <div class="politician__badges">
+    <h2 class="heading-2">Em breve!</h2>
+    <% if @badges_candidate.where(name: "Ruralista").count > 0 %>
+      <h3>Ruralista</h3>
+      <%= @badges_candidate.where(name: "Ruralista").count %>
+    <% end %>
     <%= render partial: "shared/badge" %>
   </div>
   <div class="politician__financial">
@@ -83,5 +88,11 @@
       patrimony: @candidate_patrimony
     } %>
   </div>
+  <% if user_signed_in? %>
+    <%= simple_form_for [@candidate, @badge] do |f| %>
+    <%= f.input :name, label: false, collection: ["Ambientalista", "Conservador", "Progressista", "Liberal", "Intervencionista", "Esquerda", "Direita", "Centro", "Ruralista", "Socialista", "Vidas Negras Importam", "Direitos das Mulheres", "Direitos Humanos", "Direito à Saúde", "Direito à Educação", "Direito ao Trabalho", "Direitos da População LGBTQIA+", "Policiamento Duro e Ostensivo", "Direito dos Povos Indígenas", "Direitos dos Povos Quilombolas e Tradicionais", "Direito à Terra e ao Território", "Direito a Moradia", "Legalização da Maconha", "Família Tradicional"] %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+    <% end %>
+  <% end %>
+  <%#= link_to "delete badge", badge_path(@badge), method: :delete %>
 </div>
-
