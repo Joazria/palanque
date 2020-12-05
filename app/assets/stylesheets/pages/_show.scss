@@ -21,7 +21,9 @@
   }
   &__profile {
     grid-area: profile;
-    display: flex;
+    display: grid;
+    grid-template-columns: 140px minmax(380px, max-content);
+    grid-template-rows: max-content 44px;
     gap: 0 12px;
     position: relative;
     &_img {
@@ -107,7 +109,7 @@
     grid-area: badges;
     display: grid;
     gap: 20px 0;
-    grid-template-rows: 60px max-content;
+    grid-template-rows: 100px 60px max-content;
     &-container {
       display: flex;
       flex-wrap: wrap;
