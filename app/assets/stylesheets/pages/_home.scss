@@ -41,6 +41,9 @@
   .candidates {
     grid-area: candidate;
     padding: 0 60px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
     &__title {
       color: $color-lilac;
     }
@@ -57,6 +60,9 @@
       width: 320px;
       border-radius: $radius-sm;
       box-shadow: $shadow-lg;
+    }
+    .link {
+      align-self: flex-end;
     }
   }
 }
