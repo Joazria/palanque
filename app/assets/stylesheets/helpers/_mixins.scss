@@ -64,3 +64,19 @@
   $darker-color: mix($color-black, $color, 35%);
   box-shadow: 0 0 0 2px $darker-color;
 }
+
+@mixin scrollbar() {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: $radius-lg;
+  }
+  &::-webkit-scrollbar-track-piece {
+    background-color: $color-light-lilac; 
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-lilac;
+    border-radius: $radius-lg;
+  }
+}

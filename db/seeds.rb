@@ -5,14 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'csv'
+require "csv"
 
-csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
-filepath    = 'db/candidatos.csv'
+csv_options = { col_sep: ",", quote_char: '"', headers: :first_row }
+filepath = "db/candidatos.csv"
 
 CSV.foreach(filepath, csv_options) do |row|
   file = URI.open("db/photos/FSP#{row["SQ_CANDIDATO"]}_div.jpg")
- candidate = Candidate.new(
+  candidate = Candidate.new(
     sq_candidate: row["SQ_CANDIDATO"],
     nr_candidate: row["NR_CANDIDATO"],
     name_candidate: row["NOME_CANDIDATO"].downcase.titleize,
@@ -29,17 +29,16 @@ CSV.foreach(filepath, csv_options) do |row|
     education: row["DS_GRAU_INSTRUCAO"].downcase.titleize,
     candidate_ballot_name: row["NM_URNA_CANDIDATO"].downcase.titleize,
     email_candidate: row["EMAIL"].downcase,
-    running_to: row["DS_CARGO"].downcase.titleize
+    running_to: row["DS_CARGO"].downcase.titleize,
   )
 
-
-    candidate.photo.attach(io: file, filename: file, content_type: 'image/jpg')
+  candidate.photo.attach(io: file, filename: file, content_type: "image/jpg")
   candidate.save
 
   puts "#{row["NOME_CANDIDATO"]} criado"
 end
 
-filepath = 'db/bens_candidatos.csv'
+filepath = "db/bens_candidatos.csv"
 
 CSV.foreach(filepath, csv_options) do |row|
   candidate = Candidate.find_by sq_candidate: row["SQ_CANDIDATO"]
@@ -47,7 +46,7 @@ CSV.foreach(filepath, csv_options) do |row|
     property_type: row["DS_TIPO_BEM_CANDIDATO"],
     description: row["DS_BEM_CANDIDATO"],
     value: row["VR_BEM_CANDIDATO"],
-    candidate_id: candidate.id
+    candidate_id: candidate.id,
   )
 
   puts "Bem de #{candidate.candidate_ballot_name} criado"

@@ -1,0 +1,29 @@
+.table {
+  &__inner-container {
+    max-height: 350px;
+    overflow-y: auto;
+    padding-right: 8px;
+    @include scrollbar();
+  }
+  th {
+    border-bottom: none;
+    color: $color-black;
+    font-weight: bold;
+    text-align: left;
+    padding-block-end: 4px;
+    vertical-align: bottom;
+    @extend .text-small;
+  }
+  td {
+    color: $color-grey;
+    text-align: left;
+    padding: 12px 8px 4px 4px;
+    vertical-align: top;
+    @extend .text-small;
+    &:last-child {
+      text-align: right;
+      white-space: nowrap;
+    }
+  }
+}
+
