@@ -49,6 +49,7 @@ $color-lightgrey: rgb(204, 204, 204);
 // Lists
 $btn-color-list: (
   "success" $color-success $color-white,
+  "lilac" $color-lighter-lilac $color-white,
   "warning" $color-warning $color-black,
   "danger" $color-tomato $color-white
 );
@@ -109,3 +110,8 @@ $spacer-map: ("sm" 8px, "md" 12px, "lg" 20px);
 
 $position-list: "t" "top", "b" "bottom", "l" "left", "r" "right", "x" "inline",
   "y" "block";
+
+// --------- Helpers ---------
+.red {
+  color: $color-tomato;
+}

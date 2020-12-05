@@ -1,7 +1,9 @@
 <div class="politician mt-lg">
-
-  <div class="go-back"><i class="fas fa-angle-left"></i><p class="text">Voltar</p></div>
+  <%= link_to root_path, class: "go-back" do %>
+    <i class="fas fa-angle-left"></i><p class="text">Voltar</p>
+  <% end %>
   <div class="politician__profile">
+    <%= render partial: "shared/favorite" %>
     <%= cl_image_tag @candidate.photo.key, width: 240, height: 240, crop: :fill, :class => "politician__profile_img" %>
     <div class="politician__profile_container">
       <h2 class="title profile__name">
@@ -63,7 +65,7 @@
         <small class="text"><%= @candidate.militancy %></small>
       </div>
       <div class="politician__table_item">
-        <small class="text">Região de Atuação</small>
+        <small class="text"m>Região de Atuação</small>
         <small class="text"><%= @candidate.acting_region %></small>
       </div>
     </div>
