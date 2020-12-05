@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :username, presence: true, uniqueness: true
-  has_many :bagdes
+  has_many :badges
   has_many :candidates
+  has_many :favorites
+  has_one_attached :avatar
 end

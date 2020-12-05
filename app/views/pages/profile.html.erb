@@ -1,7 +1,12 @@
 <div class="profile mt-lg">
   <div class="profile__edit">
     <div class="profile__img">
-      <h2 class="heading-2">FL</h2>
+      <% if @current_user.avatar.attached? %>
+    <%= cl_image_tag @current_user.avatar.key,  :width => 40, :height => 40, :gravity => "faces",  class: "profile__img" %>
+    <% else %>
+    <h2 class="heading-2">FL</h2>
+  <% end %>
+
     </div>
     <div class="profile__info">
       <h2 class="profile__name heading-2">Fulani</h2>
@@ -19,7 +24,7 @@
     </div>
   </div>
   <div class="profile__form">
-    <h2 class="profile__form-title title">Editar Perfil</h2>
+    <h2 class="profile__form-title title"><%= link_to 'Edit perfil', edit_user_registration_path %></h2>
     <% # render partial: "shared/form-edit-user" %>
   </div>
 
