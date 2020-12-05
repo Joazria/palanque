@@ -1,0 +1,31 @@
+.badge {
+  background-color: $color-grey;
+  border-radius: 30px;
+  color: $color-white;
+  letter-spacing: 0.025rem;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+  height: 30px;
+  min-width: 100px;
+  width: fit-content;
+  padding: 0.150rem 0.725rem;
+  @each $name, $bg in $badge-color-list {
+    &--#{$name} {
+      background-color: $bg;
+      .count {
+        background-color: darken($bg, 15%);
+        min-width: 20px;
+        height: 20px;
+        display: grid;
+        place-content: center;
+        border-radius: 50%;
+      }
+    }
+  }
+}
