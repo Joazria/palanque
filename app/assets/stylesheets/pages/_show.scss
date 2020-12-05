@@ -12,7 +12,7 @@
     padding: 0 60px;
   @media screen and (max-width: 850px) {
     grid-template-columns: 1fr;
-    grid-template-areas: 
+    grid-template-areas:
       "back"
       "profile"
       "personal"
@@ -42,6 +42,33 @@
       }
     }
   }
+  a:hover .politician__link{
+    transform: scale(1.02);
+    box-shadow: $shadow-lg;
+  }
+  &__link {
+    cursor: pointer;
+    height: 60px;
+    width: 160px;
+    border-radius: $radius-sm;
+    background-color: $color-marine;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition:
+      box-shadow 0.4s ease-in-out,
+      transform 0.4s ease-in-out;
+    padding: 0 8px;
+    box-shadow: $shadow-sm;
+    img {
+      height: 50px;
+      width: 50px;
+      object-fit: contain;
+    }
+    &-text {
+      color: $color-white;
+    }
+  }
   &__table {
     display: flex;
     flex-flow: row nowrap;
@@ -57,7 +84,7 @@
         max-width: 220px;
         white-space: normal !important;
         color: $color-black;
-        &:first-child { font-weight: bold; } 
+        &:first-child { font-weight: bold; }
       }
     }
   }
@@ -78,8 +105,14 @@
   }
   &__badges {
     grid-area: badges;
-    .heading-2 {
-      color: $color-light-tomato;
+    display: grid;
+    gap: 20px 0;
+    grid-template-rows: 60px max-content;
+    &-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-content: flex-start;
     }
   }
   &__financial {

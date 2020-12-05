@@ -4,6 +4,7 @@ class CandidatesController < ApplicationController
 
   def show
     @candidate_patrimony = Candidate.find(params[:id]).properties
+    @badge_color = ["marine", "lilac", "tomato", "success", "bordo", "laranja"]
     if user_signed_in?
       @favorite = Favorite.find_by(user_id: current_user.id, candidate_id: @candidate.id)
       @badge = Badge.new
