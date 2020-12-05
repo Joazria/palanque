@@ -49,13 +49,19 @@ class CandidatesController < ApplicationController
     number_to_currency(number, :unit => "R$ ", :separator => ",", :delimiter => ".")
   end
 
+  def shuffle_candidate
+    @new_candidate = Candidate.all.sample
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_candidate
     @candidate = Candidate.find(params[:id])
+
   end
 
+    helper_method :shuffle_candidate
 
   def candidate_params
     params.require(:candidate).permit(
