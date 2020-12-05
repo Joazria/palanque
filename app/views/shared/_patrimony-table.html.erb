@@ -1,0 +1,22 @@
+<div class="table-container mb-lg">
+  <h2 class="title">Extrato Completo</h2>
+  <div class="table__inner-container">  
+    <table class="table my-lg">
+      <thead class="table__heading">
+        <tr>
+          <th>Tipo</th>
+          <th>Descrição</th>
+          <th>Valor</th>
+        </tr>
+        <tbody>
+        <% patrimony.each do |asset|  %>
+          <tr>
+            <td><%= asset.property_type %></td>
+            <td><%= asset.description.capitalize %></td>
+            <td><%= number_to_currency(asset.value, :unit => "R$ ", :separator => ",", :delimiter => ".") %></td>
+          </tr>
+        <% end %>
+        </tbody>
+    </table>
+  </div>
+</div>
