@@ -24,3 +24,8 @@ input[type=submit] {
 fieldset { border: none }
 
 abbr { text-decoration: none; }
+
+table, th, td {
+  border-bottom: 1px solid $color-lightgrey;
+  border-collapse: collapse;
+}
