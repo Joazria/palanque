@@ -10,9 +10,8 @@ class BadgesController < ApplicationController
     @badge = Badge.new(badge_params)
     @badge.user = current_user
     @badge.candidate = @candidate
-    if @badge.save
+    @badge.save
     redirect_to candidate_path(@candidate)
-    end
 
   end
 
