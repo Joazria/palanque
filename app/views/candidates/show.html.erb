@@ -92,6 +92,14 @@
       <p class="politician__link-text text">Mais Informações</p>
     </div>
     <% end %>
+
+    <%= render partial: "shared/badge" %>
+    <br>
+    <div class="btn btn-success">
+     <% @new_candidate = shuffle_candidate %>
+      <%= link_to "descobre um outro candidate",  candidate_path(@new_candidate)%>
+      </div>
+
   </div>
   <div class="politician__financial">
     <h2 class="politician__financial_title title">Análise de extrato</h2>
