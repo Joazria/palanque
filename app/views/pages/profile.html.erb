@@ -9,12 +9,12 @@
 
     </div>
     <div class="profile__info">
-      <h2 class="profile__name heading-2">Fulani</h2>
+      <h2 class="profile__name heading-2"> <%= @current_user.username %> </h2>
       <p class="profile__location text">Vota em são paulo</p>
       <div class="profile__table mt-md">
         <div class="profile__table-item">
           <small class="text">Favoritos</small>
-          <small class="text">32</small>
+          <small class="text"> <%= current_user.favorites.count %></small>
         </div>
         <div class="profile__table-item">
           <small class="text">Email</small>
