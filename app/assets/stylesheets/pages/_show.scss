@@ -3,13 +3,22 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 60px repeat(2, 1fr);
-  gap: 20px;
+  grid-template-rows: 30px min-content 1fr;
+  gap: 30px 20px;
   grid-template-areas:
     "back ..."
     "profile personal"
     "badges financial";
     padding: 0 60px;
+  @media screen and (max-width: 850px) {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "back"
+      "profile"
+      "personal"
+      "badges"
+      "financial";
+  }
   &__profile {
     grid-area: profile;
     display: flex;
@@ -43,11 +52,11 @@
       align-items: flex-start;
       flex-flow: column nowrap;
       gap: 2px 0;
-      max-width: 220px;
       overflow: hidden;
       [class^=text] {
+        max-width: 220px;
+        white-space: normal !important;
         color: $color-black;
-        white-space: nowrap;
         &:first-child { font-weight: bold; } 
       }
     }
@@ -58,12 +67,11 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    padding: 18px;
     &_header {
       color: $color-lilac;
     }
     .politician__table {
-      width: clamp(320px, 90%, 470px);
+      width: 100%;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
     }

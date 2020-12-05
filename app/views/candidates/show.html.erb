@@ -61,12 +61,12 @@
     </div>
     <div class="politician__table mt-sm">
       <div class="politician__table_item">
-        <small class="text">Bandeiras</small>
-        <small class="text"><%= @candidate.militancy %></small>
+        <small class="text">Ocupação</small>
+        <small class="text"><%= @candidate.ds_ocupation %></small>
       </div>
       <div class="politician__table_item">
-        <small class="text"m>Região de Atuação</small>
-        <small class="text"><%= @candidate.acting_region %></small>
+        <small class="text"m>Grau de Instrução</small>
+        <small class="text"><%= @candidate.education %></small>
       </div>
     </div>
   </div>
@@ -79,6 +79,9 @@
     <h1 class="heading-1 politician__financial_number">
       <%= number_to_currency(@candidate.total_patrimony.to_f, :unit => "R$ ", :separator => ",", :delimiter => ".") %>
     </h1>
+    <%= render partial: "shared/patrimony-table", locals: {
+      patrimony: @candidate_patrimony
+    } %>
   </div>
 </div>
 
