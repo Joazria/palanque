@@ -8,12 +8,24 @@
     "editform favorites";
   padding: 0 60px;
   color: $color-black;
+  @media screen and (max-width: 830px) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "edit"
+      "favorites";
+      padding: 0 20px;
+  }
   &__edit {
     grid-area: edit;
     display: flex;
     align-items: flex-start;
     flex-wrap: nowrap;
     gap: 12px;
+    @media screen and (max-width: 830px) {
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
   }
   &__location {
     color: $color-grey;
@@ -36,6 +48,11 @@
   &__info {
     display: flex;
     flex-flow: column nowrap;
+    @media screen and (max-width: 830px) {
+      & > h2, p {
+        text-align: center;
+      }
+    }
   }
   &__img {
     height: 140px;
@@ -55,6 +72,11 @@
     justify-content: flex-start;
     gap: 0 8px;
     color: $color-black;
+    &-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
   }
   &__filter {
     display: flex;

@@ -54,6 +54,14 @@ $btn-color-list: (
   "danger" $color-tomato $color-white
 );
 
+$badge-color-list:(
+  "marine" $color-marine,
+  "lilac" $color-lilac,
+  "tomato" $color-tomato,
+  "success" $color-success,
+  "bordo" $color-bordo,
+  "laranja" $color-laranja);
+
 // ---------- Fonts ----------
 $ft-poppins: "Poppins", sans-serif;
 $ft-noto: "Noto Sans", sans-serif;
