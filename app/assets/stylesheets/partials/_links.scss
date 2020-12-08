@@ -3,6 +3,7 @@
   position: relative;
   &--hoverable {
     color: $color-lilac;
+    .text { white-space: nowrap; }
     &::before{
       content: "";
       background: currentColor;
@@ -26,6 +27,7 @@
     flex-wrap: nowrap;
     position: relative;
     transition: color 0.4s ease-in-out;
+    .text { white-space: nowrap; }
     & > .fas {
       position: absolute;
       top: 52%;
@@ -55,5 +57,29 @@
     right: initial !important;
     top: 50% !important;
     left: -15px;
+  }
+}
+
+.info-link {
+  height: 70px;
+  width: clamp(250px, 80%, 310px);
+  border-radius: $radius-md;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: $color-white;
+  flex: 1;
+  &--profile {
+    background-color: $color-light-marine;
+  }
+  &--shuffle {
+    background-color: $color-light-tomato;
+    .fas {
+      font-size: 2rem;
+    }
+  }
+  &__img {
+    height: 60px;
+    object-fit: contain;
   }
 }

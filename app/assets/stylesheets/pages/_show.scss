@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 30px min-content 1fr;
-  gap: 30px 20px;
+  gap: 30px 60px;
   grid-template-areas:
     "back ..."
     "profile personal"
@@ -24,15 +24,21 @@
     display: grid;
     grid-template-columns: 140px minmax(380px, max-content);
     grid-template-rows: max-content 44px;
-    gap: 0 12px;
+    grid-template-areas:
+      "photo text"
+      "badges badges";
+    gap: 20px 12px;
     position: relative;
+    height: min-content;
     &_img {
+      grid-area: photo;
       width: 140px;
       height: 140px;
       object-fit: cover;
       border-radius: $radius-sm;
     }
     &__container {
+      grid-area: text;
       .profile__name {
         color: $color-black;
       }
@@ -99,23 +105,33 @@
     &_header {
       color: $color-lilac;
     }
+    &-votes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-content: flex-start;
+      width: 100%;
+      grid-area: badges;
+    }
     .politician__table {
       width: 100%;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
     }
   }
-  &__badges {
+  &__vote {
     grid-area: badges;
-    display: grid;
+    display: flex;
     gap: 20px 0;
-    grid-template-rows: 100px 60px max-content;
-    &-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-content: flex-start;
-    }
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: min-content;
+  }
+  &__link-options {
+    display: flex;
+    gap: 20px;
+    height: fit-content;
+    width: 100%;
   }
   &__financial {
     grid-area: financial;

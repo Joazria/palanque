@@ -1,0 +1,36 @@
+.vote-banner {
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+  flex: 2;
+  justify-content: center;
+  row-gap: 30px;
+  height: 250px;
+  position: relative;
+  min-width: 500px;
+  border-radius: $radius-md;
+  background:
+    $gradient-hard,
+    image-url("bg-pattern.svg");
+  background-size: cover;
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
+  &::before {
+    content: '';
+    background-color: $dark-overlay;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    border-radius: $radius-md;
+  }
+  &__heading {
+    align-self: flex-start;
+    color: $color-white;
+    width: 100%;
+    &--center { text-align: center; }
+  }
+}
