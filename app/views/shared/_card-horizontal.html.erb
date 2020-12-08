@@ -4,7 +4,7 @@
       width: 120, height: 120, crop: :thumb %>
   <% end %>
   <div class="card__info">
-    <h2 class="title card__name"><%= candidate.candidate_ballot_name %></h2>
+    <h2 class="title card__name"><%= candidate.candidate_ballot_name.split.slice(0,3).join(" ") %></h2>
     <p class="text-small card__ocupation"><%= candidate.running_to %></p>
     <div class="card__table mt-sm">
       <div class="card__table_item">

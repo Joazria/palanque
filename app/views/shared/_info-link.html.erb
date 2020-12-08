@@ -1,0 +1,13 @@
+<% if variant == "profile" %>
+  <%= link_to "https://divulgacandcontas.tse.jus.br/divulga/#/candidato/2020/2030402020/71072/#{@candidate.sq_candidate}", class: "px-lg info-link info-link--#{variant}", target: "_blank" do %>
+    <%= image_tag("book.svg", class:"info-link__img") %>
+    <p class="link-info__text title">Ver mais informações</p>
+  <% end %>
+<% else %>
+  <% @new_candidate = shuffle_candidate %>
+  <%= link_to candidate_path(@new_candidate), class:"px-lg info-link info-link--#{variant}" do %>
+    <p class="link-info__text title">Conhecer outros candidatos</p>
+    <i class="fas fa-random"></i>
+  <% end %>
+<% end %>
+

@@ -10,7 +10,16 @@ class CandidatesController < ApplicationController
       @badge = Badge.new
       @badge.candidate = @candidate
       @badge.user = current_user
-      @badges_candidate = Badge.where(candidate_id: @candidate.id)
+      all_badges = Badge.where(candidate_id: @candidate.id)
+      
+      filtered_badges = {};
+
+      all_badges.each do |badge|
+        filtered_badges[badge.name] ?
+        filtered_badges[badge.name] += 1 :
+        filtered_badges[badge.name] = 1
+      end
+      @badges_candidate = filtered_badges
     else
       @badges_candidate = Badge.where(candidate_id: @candidate.id)
     end
