@@ -20,8 +20,9 @@
       "financial";
   }
   &__profile {
-    grid-area: profile;
+    color: $color-black;
     display: grid;
+    grid-area: profile;
     grid-template-columns: 140px minmax(380px, max-content);
     grid-template-rows: max-content 44px;
     grid-template-areas:
@@ -30,6 +31,14 @@
     gap: 20px 12px;
     position: relative;
     height: min-content;
+    &-votes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-content: flex-start;
+      width: 100%;
+      grid-area: badges;
+    }
     &_img {
       grid-area: photo;
       width: 140px;
@@ -104,14 +113,6 @@
     flex-wrap: nowrap;
     &_header {
       color: $color-lilac;
-    }
-    &-votes {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-content: flex-start;
-      width: 100%;
-      grid-area: badges;
     }
     .politician__table {
       width: 100%;

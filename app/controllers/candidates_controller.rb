@@ -5,23 +5,26 @@ class CandidatesController < ApplicationController
   def show
     @candidate_patrimony = Candidate.find(params[:id]).properties
     @badge_color = ["marine", "lilac", "tomato", "success", "bordo", "laranja"]
+    
+    all_badges = Badge.where(candidate_id: @candidate.id)
+    filtered_badges = {};
+    
+    all_badges.each do |badge|
+      filtered_badges[badge.name] ?
+      filtered_badges[badge.name] += 1 :
+      filtered_badges[badge.name] = 1
+    end
+
     if user_signed_in?
       @favorite = Favorite.find_by(user_id: current_user.id, candidate_id: @candidate.id)
       @badge = Badge.new
       @badge.candidate = @candidate
       @badge.user = current_user
-      all_badges = Badge.where(candidate_id: @candidate.id)
       
-      filtered_badges = {};
+      @badges_candidate = filtered_badges.sort_by {|name, count| -count }.slice(0,5)
 
-      all_badges.each do |badge|
-        filtered_badges[badge.name] ?
-        filtered_badges[badge.name] += 1 :
-        filtered_badges[badge.name] = 1
-      end
-      @badges_candidate = filtered_badges
     else
-      @badges_candidate = Badge.where(candidate_id: @candidate.id)
+      @badges_candidate = filtered_badges.sort_by {|name, count| -count }.slice(0,5)
     end
   end
 

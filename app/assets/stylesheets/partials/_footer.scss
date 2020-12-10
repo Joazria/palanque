@@ -1,0 +1,24 @@
+.footer {
+  background: $color-bordo;
+  color: $color-white;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px 8px;
+  .heading-2 {
+    @media screen and (max-width: 450px) {
+      font-size: 1.2rem;
+    }
+  }
+  .text-small {
+    align-self: flex-end;
+  }
+  &__social {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    font-size: 1.3rem;
+  }
+}
