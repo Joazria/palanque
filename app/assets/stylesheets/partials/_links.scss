@@ -69,11 +69,18 @@
   justify-content: space-evenly;
   color: $color-white;
   flex: 1;
+  transition: background .3s ease-in-out;
   &--profile {
     background-color: $color-light-marine;
+    &:hover {
+      background: $color-marine;
+    }
   }
   &--shuffle {
     background-color: $color-light-tomato;
+    &:hover {
+      background: $color-tomato;
+    }
     .fas {
       font-size: 2rem;
     }
