@@ -24,9 +24,10 @@
     display: grid;
     grid-area: profile;
     grid-template-columns: 140px minmax(380px, max-content);
-    grid-template-rows: max-content 44px;
+    grid-template-rows: max-content 60px 44px;
     grid-template-areas:
       "photo text"
+      "desc desc"
       "badges badges";
     gap: 20px 12px;
     position: relative;
@@ -56,6 +57,12 @@
       }
       .profile__number {
         color: $color-black;
+      }
+    }
+    &-desc {
+      grid-area: desc;
+      .title {
+        width: 44ch;
       }
     }
   }

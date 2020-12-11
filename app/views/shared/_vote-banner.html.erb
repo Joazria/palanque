@@ -6,7 +6,7 @@
     </div>
     <%= simple_form_for [@candidate, @badge] do |f| %>
       <%= f.input :name, label: false, include_blank: false, collection: ["Ambientalista", "Conservador", "Progressista", "Liberal", "Intervencionista", "Esquerda", "Direita", "Centro", "Ruralista", "Socialista", "Vidas Negras Importam", "Direitos das Mulheres", "Direitos Humanos", "Direito à Saúde", "Direito à Educação", "Direito ao Trabalho", "Direitos da População LGBTQIA+", "Policiamento Duro e Ostensivo", "Direito dos Povos Indígenas", "Direitos dos Povos Quilombolas e Tradicionais", "Direito à Terra e ao Território", "Direito a Moradia", "Legalização da Maconha", "Família Tradicional"] %>
-      <%= f.button :submit, class: "btn btn-success" %>
+      <%= f.button :submit, "Votar", class: "btn btn-success" %>
     <% end %>
   <% else %>
     <div class="vote-banner__heading vote-banner__heading--center">

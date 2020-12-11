@@ -4,11 +4,11 @@ class CandidatesController < ApplicationController
 
   def show
     @candidate_patrimony = Candidate.find(params[:id]).properties
-    @badge_color = ["marine", "lilac", "tomato", "success", "bordo", "laranja"]
-    
+    @badge_color = ["marine", "lilac", "bordo", "tomato", "laranja"]
+
     all_badges = Badge.where(candidate_id: @candidate.id)
     filtered_badges = {};
-    
+
     all_badges.each do |badge|
       filtered_badges[badge.name] ?
       filtered_badges[badge.name] += 1 :
@@ -20,7 +20,7 @@ class CandidatesController < ApplicationController
       @badge = Badge.new
       @badge.candidate = @candidate
       @badge.user = current_user
-      
+
       @badges_candidate = filtered_badges.sort_by {|name, count| -count }.slice(0,5)
 
     else
