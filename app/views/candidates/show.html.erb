@@ -2,7 +2,7 @@
   <%= link_to root_path, class: "go-back" do %>
     <i class="fas fa-angle-left"></i><p class="text">Voltar</p>
   <% end %>
-  <div class="politician__profile">
+  <div class="politician__profile mb-sm">
     <%= render partial: "shared/favorite" %>
     <%= cl_image_tag @candidate.photo.key, width: 240, height: 240, crop: :fill, :class => "politician__profile_img" %>
     <div class="politician__profile_container">
@@ -26,12 +26,15 @@
         </div>
       </div>
     </div>
+    <div class="politician__profile-desc">
+      <h2 class="title">Outros Palanqueiros opinaram que esse político é ou se identifica com as seguintes pautas:</h2>
+    </div>
      <div class="politician__profile-votes">
-      <% @badges_candidate.each do |badge| %>
+      <% @badges_candidate.each_with_index do |badge, index| %>
         <%= render partial: "shared/badge", locals: {
           badge: badge[0],
           count: badge[1],
-          color: @badge_color.sample
+          color: @badge_color[index]
         } %>
       <% end %>
     </div>
